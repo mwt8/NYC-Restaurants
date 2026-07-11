@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Eat in New York — A Local's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f5f6f9;
+  --paper: #ffffff;
+  --paper2: #eef0f4;
+  --ink: #15234a;
+  --ink-soft: #5b6480;
+  --rule: #dde1ea;
+  --accent: #b08866;
+  --accent2: #8a6a4f;
+  --glass: rgba(255,255,255,.78);
+  --shadow: rgba(21,35,74,.10);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+/* ── THEME: Dark ── */
+body.theme-dark {
+  --bg: #0e0e12;
+  --paper: #1a1a22;
+  --paper2: #141419;
+  --ink: #e8e4dc;
+  --ink-soft: #9592a1;
+  --rule: #2e2e3e;
+  --glass: rgba(26,26,34,.88);
+  --shadow: rgba(0,0,0,.4);
+}
+/* ── THEME: Emerald ── */
+body.theme-emerald {
+  --bg: #f2f7f4;
+  --paper: #ffffff;
+  --paper2: #e8f0ec;
+  --ink: #0e2a1c;
+  --ink-soft: #4a6857;
+  --rule: #c8ddd2;
+  --accent: #2d7a52;
+  --accent2: #1f5a3d;
+  --glass: rgba(255,255,255,.78);
+  --shadow: rgba(14,42,28,.10);
+}
+/* ── THEME: Noir ── */
+body.theme-noir {
+  --bg: #121214;
+  --paper: #1c1c1f;
+  --paper2: #161618;
+  --ink: #f0ede8;
+  --ink-soft: #8c8a96;
+  --rule: #2a2a30;
+  --accent: #e8c87a;
+  --accent2: #c4a455;
+  --glass: rgba(28,28,31,.92);
+  --shadow: rgba(0,0,0,.5);
+}
+/* ── THEME: Blush ── */
+body.theme-blush {
+  --bg: #fdf4f0;
+  --paper: #ffffff;
+  --paper2: #f7ebe6;
+  --ink: #2d1a14;
+  --ink-soft: #7a5a52;
+  --rule: #e8d0c8;
+  --accent: #c4614a;
+  --accent2: #a04a35;
+  --glass: rgba(255,255,255,.78);
+  --shadow: rgba(45,26,20,.10);
+}
+/* ── THEME: Slate ── */
+body.theme-slate {
+  --bg: #1e2130;
+  --paper: #262a3d;
+  --paper2: #1c2030;
+  --ink: #d8dce8;
+  --ink-soft: #7a8099;
+  --rule: #323650;
+  --accent: #7b9cf0;
+  --accent2: #5a7cd8;
+  --glass: rgba(38,42,61,.88);
+  --shadow: rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{min-height:100vh;background:var(--bg)!important;color:var(--ink)!important;font-family:'Inter Tight',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s var(--ease),color .4s var(--ease)}
+body.lock{overflow:hidden}
+
+.grain{position:fixed;inset:0;pointer-events:none;opacity:0;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.1 0 0 0 0 0.05 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0%;z-index:100;transition:width .1s linear}
+.wrap{max-width:1180px;margin:0 auto;padding:60px 32px 120px;position:relative;z-index:2}
+
+/* ── HEADER ── */
+header{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:36px;align-items:end;border-bottom:1px solid var(--rule);padding-bottom:42px;margin-bottom:26px}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.kicker:after{content:"";flex:1;max-width:210px;height:1px;background:var(--rule)}
+h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(46px,8vw,92px);line-height:.94;letter-spacing:-.025em;color:var(--ink);margin-bottom:26px}
+h1 em{font-style:italic;font-weight:300;color:var(--accent);display:inline-block;animation:drift 8s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.lede{font-family:'Fraunces',serif;font-weight:300;font-size:18px;line-height:1.55;color:var(--ink-soft);max-width:620px;font-style:italic}
+
+.meta-card{background:var(--glass);border:1px solid var(--rule);padding:18px;box-shadow:0 18px 42px var(--shadow);backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%)}
+.meta-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+.meta-box{background:var(--paper);border:1px solid var(--rule);padding:10px}
+.meta-box strong{font-family:'Fraunces',serif;font-size:30px;font-weight:400;display:block;line-height:1;color:var(--ink)}
+.meta-box span{display:block;margin-top:7px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.meta-note{font-size:13px;color:var(--ink-soft)}
+
+/* ── TOOLBAR ── */
+.toolbar{position:sticky;top:0;z-index:20;margin:0 -32px 46px;padding:14px 32px;background:linear-gradient(90deg,rgba(245,246,249,.92),rgba(255,255,255,.95));border-bottom:1px solid var(--rule);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);box-shadow:0 12px 34px var(--shadow);transition:background .4s var(--ease)}
+body.theme-dark .toolbar,body.theme-noir .toolbar,body.theme-slate .toolbar{background:linear-gradient(90deg,rgba(14,14,18,.92),rgba(26,26,34,.95))}
+body.theme-emerald .toolbar{background:linear-gradient(90deg,rgba(242,247,244,.92),rgba(255,255,255,.95))}
+body.theme-blush .toolbar{background:linear-gradient(90deg,rgba(253,244,240,.92),rgba(255,255,255,.95))}
+.toolbar-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap}
+.toolbar-label{margin-right:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+.toolbar-label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(176,136,102,.30);animation:beacon 2.8s ease-in-out infinite}
+@keyframes beacon{0%,100%{box-shadow:0 0 0 0 rgba(176,136,102,.22);transform:scale(1)}50%{box-shadow:0 0 0 9px rgba(176,136,102,0);transform:scale(1.22)}}
+.search{position:relative}
+.search:before{content:"⌕";position:absolute;left:15px;top:50%;transform:translateY(-52%);font-family:'Fraunces',serif;color:var(--accent);font-size:18px;z-index:1}
+.search input{width:min(280px,38vw);border:1px solid var(--rule);background:rgba(255,255,255,.88);color:var(--ink);border-radius:100px;padding:10px 16px 10px 42px;font-family:'Inter Tight',sans-serif;font-size:13px;outline:none;transition:all .28s var(--ease)}
+body.theme-dark .search input,body.theme-noir .search input,body.theme-slate .search input{background:rgba(255,255,255,.06);color:var(--ink)}
+.search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(176,136,102,.12);background:#fff}
+body.theme-dark .search input:focus,body.theme-noir .search input:focus,body.theme-slate .search input:focus{background:rgba(255,255,255,.10)}
+
+/* ── TOOLBAR BUTTONS ── */
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:9px 14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .22s var(--ease);white-space:nowrap;border-radius:4px}
+.tbtn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tbtn:disabled{opacity:.38;pointer-events:none;cursor:not-allowed}
+.tbtn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.tbtn svg{width:13px;height:13px;flex-shrink:0}
+
+/* ── LAYOUT ── */
+.guide-layout{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:start}
+.chapter-index{position:sticky;top:var(--header-h,170px);align-self:start;border-left:2px solid var(--rule);padding:8px 0 8px 16px;max-height:calc(100vh - var(--header-h,170px) - 30px);overflow:auto}
+.section{scroll-margin-top:var(--header-h,170px)}
+.chapter-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.chapter-link{display:block;width:100%;text-align:left;background:transparent;border:0;color:var(--ink-soft);font-family:'Inter Tight',sans-serif;font-size:13px;padding:7px 0 7px 14px;cursor:pointer;position:relative;transition:color .25s var(--ease),transform .25s var(--ease)}
+.chapter-link:before{content:"";position:absolute;left:-19px;top:50%;width:7px;height:7px;border-radius:50%;background:var(--rule);transform:translateY(-50%);transition:all .25s var(--ease)}
+.chapter-link:hover{color:var(--accent);transform:translateX(3px)}
+.chapter-link.active{color:var(--ink);font-weight:500;transform:translateX(5px)}
+.chapter-link.active:before{background:var(--accent);box-shadow:0 0 0 6px rgba(176,136,102,.14),0 0 18px rgba(176,136,102,.40)}
+
+.section{margin-bottom:58px;scroll-margin-top:150px}
+.section-head{display:grid;grid-template-columns:74px 1fr;gap:22px;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:17px;margin-bottom:20px;position:relative}
+.section-head:after{content:"";position:absolute;left:0;bottom:-1px;width:74px;height:1px;background:var(--accent)}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--accent)}
+.section h2{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,40px);font-weight:400;line-height:1;letter-spacing:-.01em;color:var(--ink)}
+.section-note{grid-column:2;margin-top:5px;font-family:'Fraunces',serif;font-size:13px;font-style:italic;color:var(--ink-soft)}
+
+/* ── TILE GRID ── */
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px}
+.tile{appearance:none;text-align:left;border:1px solid var(--rule);background:rgba(255,255,255,.95);color:var(--ink);padding:16px;min-height:184px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 10px 26px var(--shadow);transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s var(--ease);animation:tileRise .62s var(--ease) both}
+body.theme-dark .tile,body.theme-noir .tile,body.theme-slate .tile{background:var(--paper)}
+@keyframes tileRise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.tile:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.68}
+.tile:hover{transform:translateY(-5px);box-shadow:0 18px 36px var(--shadow),0 0 0 1px rgba(176,136,102,.18);border-color:var(--accent)}
+.tile-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:18px;position:relative;z-index:1}
+.tile-num,.tile-neighborhood{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.tile-num{display:inline-flex;align-items:center;gap:5px}
+.tile-user-badge{color:var(--accent);font-size:9px;line-height:1}
+.tile h3{font-family:'Fraunces',serif;font-size:22px;font-weight:500;line-height:1.02;letter-spacing:-.012em;margin-bottom:9px;position:relative;z-index:1;color:var(--ink)}
+.tile p{font-size:13px;color:var(--ink-soft);line-height:1.38;position:relative;z-index:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;position:relative;z-index:1}
+.tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border:1px solid rgba(196,178,145,.9);background:rgba(232,221,201,.56);padding:4px 7px;border-radius:100px}
+body.theme-dark .tag,body.theme-noir .tag,body.theme-slate .tag{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+
+/* ── TILE CONTROLS (edit/delete) ── */
+.tile-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;opacity:0;transition:opacity .2s var(--ease);z-index:10}
+.tile:hover .tile-actions{opacity:1}
+.tile-action-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;transition:all .2s var(--ease)}
+.tile-action-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tile-action-btn.del:hover{background:#e05b5b;border-color:#e05b5b;color:#fff}
+
+/* ── OVERLAY / PANELS ── */
+.overlay{position:fixed;inset:0;background:rgba(42,27,14,.24);z-index:80;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.overlay.open{opacity:1;pointer-events:auto}
+
+/* ── DETAIL PANEL ── */
+.panel{position:fixed;top:18px;right:18px;bottom:18px;width:min(520px,calc(100vw - 36px));z-index:90;transform:translateX(calc(100% + 34px));transition:transform .55s var(--ease);background:var(--glass);border:1px solid var(--rule);box-shadow:0 26px 70px var(--shadow);backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%);display:flex;flex-direction:column;overflow:hidden}
+.panel.open{transform:translateX(0)}
+.panel-scroll{overflow:auto;padding:24px;flex:1}
+.panel-close{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:20px;z-index:3;transition:all .25s var(--ease)}
+.panel-close:hover{background:var(--ink);color:var(--paper);transform:rotate(90deg)}
+.panel-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;padding-right:46px}
+.panel h2{font-family:'Fraunces',serif;font-size:44px;line-height:.98;font-weight:400;letter-spacing:-.02em;margin-bottom:10px;padding-right:36px;color:var(--ink)}
+.panel-sub{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-soft);font-size:17px;line-height:1.45;margin-bottom:18px}
+.panel-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.panel .tag{background:rgba(255,255,255,.88)}
+.detail-block{border-top:1px solid var(--rule);padding-top:16px;margin-top:16px}
+.detail-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.highlights{display:grid;gap:8px;list-style:none}
+.highlights li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-soft);line-height:1.42}
+.highlights li:before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.action{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:11px 12px;text-decoration:none;font-size:13px;transition:all .25s var(--ease)}
+.action:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-2px)}
+.action span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.map-frame{width:100%;height:250px;border:1px solid var(--rule);margin-top:10px;background:var(--paper);filter:saturate(.9) sepia(.08)}
+.map-note{font-size:12px;color:var(--ink-soft);margin-top:8px}
+.plan-rows{display:grid;gap:10px}
+.plan-row{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--rule)}
+.plan-row:last-child{border-bottom:none}
+.plan-row-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:2px}
+.plan-row-value{font-size:13.5px;color:var(--ink);line-height:1.45}
+.plan-row-value strong{font-weight:500;color:var(--accent)}
+.transit-loading{display:flex;align-items:center;gap:9px;color:var(--ink-soft);font-size:13px}
+.transit-spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--rule);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.transit-error{font-size:13px;color:var(--ink-soft);font-style:italic}
+.transit-stop{display:block;margin-bottom:14px}
+.transit-lines{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+.mta-bullet{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#fff;flex-shrink:0;letter-spacing:0}
+.mta-bullet-sm{width:18px;height:18px;font-size:9.5px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:600;flex-shrink:0;letter-spacing:0}
+.transit-stop-name{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:3px}
+.transit-walk{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink-soft);display:flex;align-items:center;gap:5px}
+.transit-walk:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.transit-divider{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 6px;opacity:.6}
+.tile-transit{display:flex;align-items:center;gap:4px;flex-shrink:0;max-width:100%;overflow:hidden}
+.tile-transit-walk{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--ink-soft);white-space:nowrap;margin-left:3px}
+.tile-bottom-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:16px;position:relative;z-index:1;flex-wrap:wrap}
+.tile-bottom-row .tag-row{margin-top:0;flex:1;min-width:0}
+
+/* ── EMPTY STATE ── */
+.empty{display:none;border:1px dashed var(--rule);padding:26px;text-align:center;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;font-size:18px;background:rgba(255,255,255,.7)}
+
+/* ── FOOTER ── */
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+footer .mark{font-family:'Fraunces',serif;font-style:italic;font-size:14px;letter-spacing:0;text-transform:none;color:var(--accent)}
+
+/* ── MODAL: Add/Edit Restaurant ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);backdrop-filter:blur(4px)}
+.modal-bg.open{opacity:1;pointer-events:auto}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-44%);width:min(620px,calc(100vw - 32px));max-height:90vh;overflow:auto;z-index:210;background:var(--paper);border:1px solid var(--rule);box-shadow:0 40px 100px rgba(0,0,0,.3);padding:32px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .4s var(--ease)}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h3{font-family:'Fraunces',serif;font-size:32px;font-weight:400;letter-spacing:-.02em;margin-bottom:24px;color:var(--ink)}
+.modal-close{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;font-size:18px;transition:all .22s var(--ease)}
+.modal-close:hover{background:var(--ink);color:var(--paper)}
+.form-row{margin-bottom:18px}
+.form-row label{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.form-row input,.form-row textarea,.form-row select{width:100%;border:1px solid var(--rule);background:var(--bg);color:var(--ink);padding:11px 14px;font-family:'Inter Tight',sans-serif;font-size:14px;outline:none;transition:border-color .22s var(--ease);border-radius:4px}
+.form-row input:focus,.form-row textarea:focus,.form-row select:focus{border-color:var(--accent)}
+.form-row textarea{min-height:90px;resize:vertical;line-height:1.5}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ai-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);padding:9px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .22s var(--ease);margin-bottom:8px;border-radius:4px}
+.ai-btn:hover{background:var(--accent);color:#fff}
+.ai-btn.loading{opacity:.6;pointer-events:none}
+.ai-spin{display:inline-block;width:11px;height:11px;border:2px solid rgba(176,136,102,.3);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite}
+.modal-footer{display:flex;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)}
+.form-row small{display:block;margin-top:5px;font-size:11px;color:var(--ink-soft)}
+.tag-input-wrap{display:flex;flex-wrap:wrap;gap:6px;border:1px solid var(--rule);background:var(--bg);padding:8px;border-radius:4px;cursor:text;min-height:44px;align-items:center}
+.tag-input-wrap input{border:none;background:transparent;color:var(--ink);font-size:13px;outline:none;flex:1;min-width:100px;font-family:'Inter Tight',sans-serif}
+.tag-pill{background:var(--accent);color:#fff;border-radius:100px;padding:3px 10px;font-size:11px;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:5px;cursor:pointer;white-space:nowrap}
+.tag-pill:after{content:"×";font-size:13px}
+
+/* ── MODAL: Theme Customizer ── */
+.theme-modal{width:min(480px,calc(100vw - 32px))}
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.theme-swatch{border:2px solid transparent;border-radius:8px;padding:14px 10px;cursor:pointer;transition:all .22s var(--ease);text-align:center;position:relative}
+.theme-swatch.selected{border-color:var(--accent)}
+.theme-swatch-preview{height:36px;border-radius:5px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px}
+.theme-swatch-dot{width:10px;height:10px;border-radius:50%}
+.theme-name{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.theme-check{position:absolute;top:6px;right:6px;width:16px;height:16px;background:var(--accent);border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-size:9px}
+.theme-swatch.selected .theme-check{display:flex}
+
+/* ── CUSTOM COLOR SECTION ── */
+.color-customizer{border-top:1px solid var(--rule);padding-top:20px;margin-top:4px}
+.color-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.color-field{display:flex;align-items:center;gap:10px;border:1px solid var(--rule);padding:8px 12px;background:var(--bg);border-radius:4px;cursor:pointer;transition:border-color .2s var(--ease)}
+.color-field:hover{border-color:var(--accent)}
+.color-field input[type="color"]{width:28px;height:28px;border:none;background:transparent;cursor:pointer;padding:0;border-radius:4px}
+.color-field label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);flex:1;cursor:pointer}
+
+/* ── NOTIFICATION TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);z-index:500;background:var(--ink);color:var(--paper);padding:12px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:100px;opacity:0;transition:all .35s var(--ease);pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:780px){
+  .wrap{padding:42px 20px 90px}
+  header{grid-template-columns:1fr;gap:24px}
+  .toolbar{margin:0 -20px 36px;padding:12px 20px}
+  .toolbar-inner{flex-wrap:wrap;gap:8px}
+  .toolbar-label{display:none}
+  .search input{width:100%}
+  .guide-layout{display:block}
+  .chapter-index{position:sticky;top:calc(var(--header-h,150px) - 18px);z-index:19;display:flex;gap:8px;overflow:auto;border-left:0;border-bottom:1px solid var(--rule);padding:10px 20px 12px;margin:0 -20px 24px;max-height:none;background:var(--bg);scrollbar-width:none}
+  .chapter-index::-webkit-scrollbar{display:none}
+  .section{scroll-margin-top:calc(var(--header-h,150px) + 44px)}
+  .chapter-kicker{display:none}
+  .chapter-link{white-space:nowrap;border:1px solid var(--rule);border-radius:100px;background:rgba(255,255,255,.88);padding:7px 12px}
+  .chapter-link:before{display:none}
+  .chapter-link.active{background:var(--ink);color:var(--paper);transform:none}
+  .section-head{grid-template-columns:42px 1fr;gap:12px}
+  .section-note{grid-column:2}
+  .tile-grid{grid-template-columns:1fr}
+  .panel{top:10px;right:10px;bottom:10px;width:calc(100vw - 20px)}
+  .links{grid-template-columns:1fr}
+  footer{display:grid;gap:10px}
+  .form-grid{grid-template-columns:1fr}
+  .theme-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── Engagement layer ── */
+.scoreboard{max-width:1180px;margin:10px auto 0;padding:8px 0 0;border-top:1px solid var(--rule);display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.scoreboard .sb-stat b{color:var(--ink);font-weight:700}
+.sb-bar{flex:1;height:4px;border-radius:4px;background:var(--paper2);overflow:hidden;min-width:60px}
+.sb-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .6s var(--ease)}
+.sb-label{white-space:nowrap;color:var(--accent2);font-style:normal}
+.chips{max-width:1180px;margin:8px auto 0;display:flex;gap:8px;overflow-x:auto;padding:2px 0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:6px 14px;border-radius:100px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s var(--ease)}
+.chip:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-1px)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tile-action-btn.mark-want.on{background:#e05b7b;border-color:#e05b7b;color:#fff;opacity:1}
+.tile-action-btn.mark-been.on{background:#3d9a6c;border-color:#3d9a6c;color:#fff;opacity:1}
+.tile-actions:has(.on){opacity:1}
+.tile.is-been .tile-num{color:#3d9a6c}
+.tile.is-been .tile-num:after{content:" \2713"}
+@media (hover:none){.tile-actions{opacity:1}}
+.panel-marks{display:flex;gap:8px;margin:10px 0 4px}
+.pmark{flex:1;padding:9px 12px;border-radius:10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s var(--ease)}
+.pmark:hover{transform:translateY(-1px);border-color:var(--accent)}
+.pmark.want.on{background:#e05b7b;border-color:#e05b7b;color:#fff}
+.pmark.been.on{background:#3d9a6c;border-color:#3d9a6c;color:#fff}
+.spin-overlay{position:fixed;inset:0;background:rgba(15,18,28,.55);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center}
+.spin-overlay.open{display:flex}
+.spin-card{background:var(--paper);border:1px solid var(--rule);border-radius:20px;padding:34px 30px;width:min(420px,90vw);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:spinPop .35s var(--ease)}
+@keyframes spinPop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.spin-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:14px}
+.spin-name{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--ink);min-height:76px;display:flex;align-items:center;justify-content:center;line-height:1.15}
+.spin-name.rolling{color:var(--ink-soft);filter:blur(.4px)}
+.spin-sub{font-size:13px;color:var(--ink-soft);min-height:20px;margin:6px 0 20px}
+.spin-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.spin-btn{padding:11px 20px;border-radius:100px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s var(--ease)}
+.spin-btn:hover{transform:translateY(-1px)}
+.spin-btn.go{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.spin-btn.go:hover{background:var(--accent);border-color:var(--accent)}
+.spin-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--ink-soft);cursor:pointer}
+.confetti-bit{position:fixed;width:7px;height:7px;border-radius:2px;pointer-events:none;z-index:300;animation:confettiFly .7s var(--ease) forwards}
+@keyframes confettiFly{to{transform:translate(var(--cx),var(--cy)) rotate(540deg);opacity:0}}
+@media(max-width:720px){.scoreboard{gap:10px}.sb-label{display:none}}
+
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+<div class="overlay" id="overlay"></div>
+<div class="toast" id="toast"></div>
+
+<!-- ── DETAIL PANEL ── -->
+<div class="spin-overlay" id="spinOverlay">
+  <div class="spin-card" style="position:relative">
+    <button class="spin-close" id="spinClose">×</button>
+    <div class="spin-kicker">Tonight's Pick</div>
+    <div class="spin-name" id="spinName">—</div>
+    <div class="spin-sub" id="spinSub"></div>
+    <div class="spin-actions">
+      <button class="spin-btn" id="spinAgain">Spin again</button>
+      <button class="spin-btn go" id="spinGo">Take me there</button>
+    </div>
+  </div>
+</div>
+
+<aside class="panel" id="panel" aria-hidden="true">
+  <button class="panel-close" id="closePanel" aria-label="Close">×</button>
+  <div class="panel-scroll">
+    <div class="panel-kicker" id="panelKicker"></div>
+    <h2 id="panelTitle"></h2>
+    <p class="panel-sub" id="panelDesc"></p>
+    <div class="panel-tags" id="panelTags"></div>
+    <div class="panel-marks">
+      <button class="pmark want" id="panelWantBtn">♥ Save for later</button>
+      <button class="pmark been" id="panelBeenBtn">✓ Been there</button>
+    </div>
+    <div class="detail-block">
+      <div class="detail-label">Menu Highlights</div>
+      <ul class="highlights" id="panelHighlights"></ul>
+    </div>
+    <div class="detail-block" id="planBlock" style="display:none">
+      <div class="detail-label">Plan the Visit</div>
+      <div class="plan-rows" id="planRows"></div>
+    </div>
+    <div class="detail-block" id="transitBlock">
+      <div class="detail-label">Getting There</div>
+      <div id="transitContent" class="transit-loading">
+        <span class="transit-spinner"></span><span>&nbsp;Finding nearest subway…</span>
+      </div>
+    </div>
+    <div class="detail-block">
+      <div class="detail-label">Links</div>
+      <div class="links">
+        <a class="action" id="websiteLink" target="_blank" rel="noopener"><span>Website / Menu</span>↗</a>
+        <a class="action" id="directionsLink" target="_blank" rel="noopener"><span>Directions</span>↗</a>
+      </div>
+    </div>
+    <div class="detail-block">
+      <div class="detail-label">Map View</div>
+      <iframe class="map-frame" id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="map-note">Opens Google Maps using restaurant name + NYC address.</p>
+    </div>
+  </div>
+</aside>
+
+<!-- ── ADD/EDIT MODAL ── -->
+<div class="modal-bg" id="addModalBg"></div>
+<div class="modal" id="addModal">
+  <button class="modal-close" id="closeAddModal">×</button>
+  <h3 id="modalTitle">Add Restaurant</h3>
+  <div class="form-row">
+    <label>Restaurant Name</label>
+    <input type="text" id="fName" placeholder="e.g. Carbone">
+  </div>
+  <div class="form-grid">
+    <div class="form-row">
+      <label>Category</label>
+      <select id="fCategory">
+        <option value="">— select or type below —</option>
+        <option>Favorites</option><option>After Work</option><option>Chef's Counter</option>
+        <option>Happy Hour</option><option>Tacos</option><option>Vegan</option>
+        <option>Spanish</option><option>Brunch</option><option>Flights</option>
+        <option>Ramen and Pho</option><option>Handrolls</option><option>Soul</option>
+        <option>Bodegas &amp; Delis</option><option>Korean</option><option>Thai</option>
+        <option>Chinese</option><option>Indian</option><option>Mediterranean</option>
+        <option>Italian</option><option>Pizza</option><option>Street Carts</option>
+        <option>Dessert</option><option>Food Halls</option><option>Chelsea &amp; Highline</option>
+        <option>Steakhouse</option><option>Food Events</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Custom Category</label>
+      <input type="text" id="fCategoryCustom" placeholder="Or type a new category">
+    </div>
+  </div>
+  <div class="form-row">
+    <label>Neighborhood / Area</label>
+    <input type="text" id="fArea" placeholder="e.g. West Village">
+  </div>
+  <div class="form-row">
+    <label>Description</label>
+    <button class="ai-btn" id="aiGenBtn">
+      <span id="aiIcon">✦</span>
+      <span id="aiBtnText">Generate with AI</span>
+    </button>
+    <textarea id="fDesc" placeholder="Description auto-generates when you fill Name + Category. Or write your own."></textarea>
+    <small id="aiStatus">AI will auto-generate a description when Name and Category are filled in.</small>
+  </div>
+  <div class="form-row">
+    <label>Menu Highlights</label>
+    <input type="text" id="fHighlights" placeholder="Dish 1, Dish 2, Dish 3 (comma separated)">
+  </div>
+  <div class="form-row">
+    <label>Tags</label>
+    <div class="tag-input-wrap" id="tagWrap">
+      <input type="text" id="fTagInput" placeholder="Type tag + Enter">
+    </div>
+    <small>Press Enter to add each tag.</small>
+  </div>
+  <div class="form-grid">
+    <div class="form-row">
+      <label>Best Time to Visit</label>
+      <input type="text" id="fPrime" placeholder="e.g. Weekend dinner">
+    </div>
+    <div class="form-row">
+      <label>Reservations</label>
+      <input type="text" id="fRez" placeholder="e.g. Required - book on Resy">
+    </div>
+  </div>
+  <div class="form-row">
+    <label>Website (optional)</label>
+    <input type="url" id="fWebsite" placeholder="https://...">
+  </div>
+  <div class="modal-footer">
+    <button class="tbtn primary" id="saveRestaurantBtn">Save Restaurant</button>
+    <button class="tbtn" id="cancelAddBtn">Cancel</button>
+  </div>
+</div>
+
+<!-- ── THEME MODAL ── -->
+<div class="modal-bg" id="themeModalBg"></div>
+<div class="modal theme-modal" id="themeModal">
+  <button class="modal-close" id="closeThemeModal">×</button>
+  <h3>Theme &amp; Colors</h3>
+  <div class="theme-grid" id="themeGrid"></div>
+  <div class="color-customizer">
+    <div class="detail-label" style="margin-bottom:14px">Custom Accent Color</div>
+    <div class="color-row">
+      <div class="color-field">
+        <input type="color" id="customAccent" value="#b08866">
+        <label for="customAccent">Accent Color</label>
+      </div>
+      <div class="color-field">
+        <input type="color" id="customBg" value="#f5f6f9">
+        <label for="customBg">Background</label>
+      </div>
+    </div>
+    <div class="color-row">
+      <div class="color-field">
+        <input type="color" id="customInk" value="#15234a">
+        <label for="customInk">Text Color</label>
+      </div>
+      <div class="color-field">
+        <input type="color" id="customPaper" value="#ffffff">
+        <label for="customPaper">Card Color</label>
+      </div>
+    </div>
+    <button class="tbtn primary" onclick="applyCustomColors()" style="margin-top:8px">Apply Custom Colors</button>
+    <button class="tbtn" onclick="resetColors()" style="margin-top:8px;margin-left:8px">Reset</button>
+  </div>
+</div>
+
+<!-- ── PAGE ── -->
+<div class="wrap">
+  <header>
+    <div>
+      <div class="kicker">A Local's Guide</div>
+      <h1>Where to Eat<br>in <em>New York</em></h1>
+      <p class="lede">A local's guide. Whether you've got a weekend or a week, these are the spots worth your time — sorted by craving, neighborhood, and occasion. Tap any tile for must-orders, directions, and a live map.</p>
+    </div>
+    <div class="meta-card">
+      <div class="meta-title">Guide Dashboard</div>
+      <div class="meta-grid">
+        <div class="meta-box"><strong id="countSpots">—</strong><span>Spots</span></div>
+        <div class="meta-box"><strong id="countCats">—</strong><span>Categories</span></div>
+              </div>
+      <p class="meta-note">Select a tile for menu highlights, website, directions &amp; live map.</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <div class="toolbar-label">Concierge Search</div>
+      <div class="search"><input id="searchInput" type="search" placeholder="Search spot, cuisine, area..."></div>
+      <button class="tbtn primary" id="tonightBtn" title="Can't decide? Let the guide pick.">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="1" width="12" height="12" rx="3"/><circle cx="4.5" cy="4.5" r="1" fill="currentColor"/><circle cx="9.5" cy="9.5" r="1" fill="currentColor"/><circle cx="9.5" cy="4.5" r="1" fill="currentColor"/><circle cx="4.5" cy="9.5" r="1" fill="currentColor"/></svg>
+        Tonight's Pick
+      </button>
+      <button class="tbtn" id="themeBtn">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="3"/><circle cx="7" cy="7" r="6"/></svg>
+        Themes
+      </button>
+    </div>
+    <div class="scoreboard" id="scoreboard">
+      <span class="sb-stat">✓ <b id="sbBeen">0</b> been</span>
+      <span class="sb-stat">♥ <b id="sbWant">0</b> saved</span>
+      <div class="sb-bar"><div class="sb-fill" id="sbFill"></div></div>
+      <span class="sb-label" id="sbLabel"></span>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="guide-layout">
+    <nav class="chapter-index" id="chapterIndex" aria-label="Category index">
+      <div class="chapter-kicker">Chapters</div>
+    </nav>
+    <main id="sections"></main>
+  </div>
+  <div class="empty" id="empty">No matching restaurants. Clear the search or try another filter.</div>
+
+  <footer>
+    <span>NYC / A Local's Guide</span>
+    <span class="mark">click, inspect, then go</span>
+    <span>v.interactive</span>
+  </footer>
+</div>
+
+<script>
+// ─────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────
+let restaurants = [
+ {n:'Anixi',c:'Favorites',area:'Mediterranean',d:'The pick for plant-based. Lush, high-end Mediterranean - the vegan dinner that makes everyone at the table forget what they ordered.',h:['Vegan Mediterranean plates','Mezze','Upscale plant-based dinner'],tags:['Vegan','Mediterranean','Favorite'],prime:'Tuesday–Saturday dinner, 7–9pm',rez:'Recommended on weekends',dress:'Smart casual'},
+ {n:'Sunday Morning',c:'Brunch',area:'Lower East Side',d:'Weekend reset spot. LES cafe famous for cinnamon rolls - go early, they sell out before noon.',h:['Cinnamon rolls','Weekend brunch plates','Coffee program'],tags:['Brunch','LES','Cinnamon Rolls'],prime:'Saturday/Sunday before noon - cinnamon rolls sell out fast',rez:'Walk-in only'},
+ {n:'Kazunori',c:'Favorites',area:'Union Square',d:'The handroll standard. Counter seat, set menu, watch each roll get built and eat it the second it lands.',h:['Hand roll sets','Warm rice','Crisp nori'],tags:['Handrolls','Sushi','Counter','Favorite'],prime:'Off-peak weekday lunch or 9–10pm dinner to skip the line',rez:'Walk-in counter only - expect a wait at peak'},
+ {n:"Melba's",c:'Favorites',area:'Harlem',d:'The Harlem standard. Chicken and waffles that earned every bit of the reputation. The room is as warm as the food.',h:['Chicken and waffles','Soul food classics','Harlem dinner'],tags:['Soul','Harlem','Classic','Favorite'],prime:'Late dinner Wednesday–Sunday',rez:'Recommended for weekends'},
+ {n:'File Gumbo Bar',c:'Favorites',area:'Tribeca',d:'New Orleans in Tribeca. Gumbo built to order in steam kettles at the bar - pick your roux, protein, and heat level.',h:["Tiny's Gumbo - all in",'Chargrilled oysters','Brown butter bourbon bread pudding'],tags:['Cajun','Creole','Tribeca','Favorite'],prime:'Weekend brunch or after-work happy hour',rez:'Recommended - bar seats for the kettle show'},
+ {n:'Time Out Market New York',c:'Favorites',area:'DUMBO',d:"The group dinner answer. Brooklyn's best vendors under one roof, with a Manhattan skyline view that does half the work.",h:['Food hall vendors','Rooftop views','Group-friendly dinner'],tags:['Food Hall','DUMBO','Views','Favorite'],prime:'Weekend afternoons or sunset for the skyline',rez:'Walk-in food hall'},
+ {n:'Felice 56',c:'After Work',area:'Midtown East',d:'Italian wine bar without the theatrics. A after-work Midtown East constant - spritz, charcuterie, the night that builds itself.',h:['Aperitivo hour','Charcuterie board','Italian wines by the glass'],tags:['Wine Bar','Midtown','After Work'],prime:'Tuesday–Friday 5–7pm',rez:'Walk-in for bar; book for dinner tables'},
+ {n:'Sugar Monk',c:'After Work',area:'Harlem',d:'Harlem cocktail bar. Creative drinks, dim light, the kind of place that turns one drink into three.',h:['Seasonal craft cocktails','Harlem neighborhood vibes','After-work spot'],tags:['Cocktails','Harlem','After Work'],prime:'Weeknight after-work',rez:'Walk-in'},
+ {n:'Debajo',c:'After Work',area:'East Village',d:'Spanish tapas in the basement. Jamón, wine, and the energy of a room that knows exactly what it is.',h:['Jamón ibérico','Spanish wine list','Tapas small plates'],tags:['Spanish','East Village','After Work'],prime:'Weeknight 6–9pm',rez:'Recommended'},
+ {n:'Debajo',c:'Chef\'s Counter',area:'East Village',d:'Intimate, serious Spanish cooking below street level. The chefs counter is where the real work shows.',h:['Chef\'s counter experience','Spanish seasonal menu','Wine pairings'],tags:['Spanish','Chef\'s Counter','Intimate'],prime:'Weeknight dinner',rez:'Required'},
+ {n:'Atomix',c:'Chef\'s Counter',area:'Gramercy',d:'Two-Michelin-star Korean tasting menu. The card describing each dish is more thoughtful than most menus. Book a month out and dress for it.',h:['Korean tasting menu','Seasonal course presentations','Sake pairing available'],tags:['Korean','Michelin','Tasting Menu'],prime:'Dinner only - Tuesday through Saturday',rez:'<strong>Required</strong> - Tock, releases monthly',dress:'Business casual minimum - jackets recommended'},
+ {n:'Atera',c:'Chef\'s Counter',area:'Tribeca',d:'Counter-only tasting menu in TriBeCa. White tablecloth precision in a room that fits about 14 people. The kind of dinner you plan a month ahead.',h:['Seasonal tasting menu','Counter dining','New American cooking'],tags:['Tasting Menu','Tribeca','Special Occasion'],prime:'Dinner only - book ahead',rez:'<strong>Required</strong>',dress:'Smart casual - jackets common'},
+ {n:'Casa Mono',c:'Chef\'s Counter',area:'Gramercy',d:'Mario Batali\'s Spanish wine bar. Manchego, chorizo, and a bottle of Garnacha - the counter seat that turns an hour into three.',h:['Tortilla española','Charcuterie','Rioja by the glass'],tags:['Spanish','Gramercy','Wine Bar'],prime:'Weeknight counter',rez:'Walk-in counter or reservations for tables'},
+ {n:'Carbone',c:'Italian',area:'Greenwich Village',d:'The most coveted reservation in NYC Italian. Mid-century Italian-American temple - servers in tuxedos, spicy rigatoni vodka as a cultural artifact. Book at 10am on the dot on Resy.',h:['Spicy rigatoni vodka','Veal parmigiana','Tableside prosciutto & mozzarella'],tags:['Italian-American','Greenwich Village','Special Occasion'],prime:'Weeknight dinner - easier to book than weekends',rez:'<strong>Required - book at 10am exactly on Resy</strong>',dress:'Smart casual - dress up'},
+ {n:'4 Charles Prime Rib',c:'Steakhouse',area:'West Village',d:'Subterranean West Village townhouse. Salt-crusted USDA prime rib, double wagyu cheeseburger, vintage jazz on the soundtrack. Michelin Guide listed.',h:['Salt-crusted USDA prime rib','10oz double wagyu cheeseburger','Truffle mac and cheese'],tags:['Steakhouse','West Village','Special Occasion'],prime:'Dinner nightly - brunch Sat & Sun',rez:'<strong>Required</strong> - books fast via Tock',dress:'Smart casual - no athleisure'},
+ {n:'Tao Downtown',c:'Chelsea & Highline',area:'Showstopper',d:'The titan of NYC vibe dining. Massive, moody, and always a performance.',h:['Pan-Asian plates','Large-format dining','High-energy room'],tags:['Chelsea','Vibe Dining','Group'],prime:'Friday/Saturday dinner',rez:'<strong>Required</strong> - book 2+ weeks ahead',dress:'Smart casual - no athleisure or sneakers'},
+ {n:'Buddakan',c:'Chelsea & Highline',area:'Chelsea',d:'Pan-Asian theater. The dining room that still draws a crowd worth dressing for.',h:['Edamame dumplings','Pan-Asian sharing plates','Dramatic dining room'],tags:['Chelsea','Pan-Asian','Big Night'],prime:'Weekend dinner',rez:'<strong>Required</strong>',dress:'Smart casual - dress up'},
+ {n:'Catch NYC',c:'Chelsea & Highline',area:'Rooftop',d:'High-energy seafood with a rooftop. Loud in the right way.',h:['Seafood towers','Sushi rolls','Rooftop drinks'],tags:['Seafood','Rooftop','Chelsea'],prime:'Friday/Saturday dinner',rez:'<strong>Required</strong>',dress:'Smart casual - no athleisure'},
+ {n:'Los Tacos No. 1',c:'Tacos',area:'Chelsea Market',d:'The taco that runs the city. Adobada, asada, campechano - tortillas made in front of you, order doubles.',h:['Adobada taco','Campechano','Handmade tortillas'],tags:['Tacos','Chelsea','Mexican'],prime:'Weekday lunch to skip the weekend crowd',rez:'Walk-in counter - cash only'},
+ {n:'Birria LES',c:'Tacos',area:'LES',d:'The birria destination of Lower Manhattan. Consommé for dipping, queso stretching to the ceiling, and a line that tells you everything.',h:['Birria quesatacos','Consome for dipping','Birria ramen'],tags:['Tacos','Birria','LES'],prime:'Weekend brunch or late lunch',rez:'Walk-in - expect a line on weekends'},
+ {n:'Esse Taco',c:'Tacos',area:'NoLita',d:'Mexico City-style tacos in NoLita. Clean, focused, the kind of taco spot you find yourself defaulting to.',h:['Suadero taco','Al pastor','Mexico City style'],tags:['Tacos','NoLita','Mexican'],prime:'Lunch or early dinner',rez:'Walk-in'},
+ {n:'Tacombi',c:'Tacos',area:'SoHo',d:"NYC's most polished taco brand. The original Nolita converted gas station - fresh tortillas, good aguas, reliable every time.",h:['Fish taco','Chicken tinga','Agua fresca'],tags:['Tacos','SoHo','Mexican'],prime:'Weekend brunch tacos',rez:'Walk-in friendly'},
+ {n:'Ippudo',c:'Ramen and Pho',area:'Tonkotsu',d:'A global legend for a reason. Tonkotsu broth that set the standard everyone else is still chasing.',h:['Tonkotsu ramen','Pork buns','Rich broth'],tags:['Ramen','Tonkotsu','Japanese'],prime:"Off-peak - they don't take reservations",rez:'Walk-in only - expect waits'},
+ {n:'Kazunori',c:'Handrolls',area:'Union Square',d:'The gold standard. Sit at the counter, order the set, eat each one the second it lands.',h:['Hand roll sets','Warm rice','Crisp nori'],tags:['Handrolls','Sushi','Counter'],prime:'Off-peak weekday lunch or 9–10pm dinner to skip the line',rez:'Walk-in counter only - expect a wait at peak'},
+ {n:"Melba's",c:'Soul',area:'Harlem',d:'The Harlem standard. Chicken and waffles that earned every bit of the reputation.',h:['Chicken and waffles','Soul food classics','Harlem dinner'],tags:['Soul','Harlem','Classic'],prime:'Late dinner Wednesday–Sunday',rez:'Recommended for weekends'},
+ {n:"Amy Ruth's",c:'Soul',area:'Harlem',d:"Harlem institution. The menu reads like a love letter - dishes named after civil rights icons. Chicken and waffles done their way.",h:['Chicken and waffles','Smothered pork chops','Sweet potato pie'],tags:['Soul','Harlem','Institution'],prime:'Sunday brunch - go early',rez:'Walk-in - expect a line on Sundays'},
+ {n:'Blue Sky Deli Hajis',c:'Bodegas & Delis',area:'East Harlem',d:'The birthplace of the chopped cheese. A landmark - order it the way it was meant to be made.',h:['Chopped cheese','Bodega sandwiches','NYC landmark bite'],tags:['Bodega','East Harlem','Chopped Cheese']},
+ {n:'Inwood Bagels',c:'Bodegas & Delis',area:'Inwood',d:'Hand-rolled, kettle-boiled bagels with 16 flavored cream cheeses. The Ultimate Bacon, Egg & Cheese on a brioche bun is the move. Open 7am–3pm weekdays.',h:['Ultimate Bacon Egg & Cheese on brioche','Nova lox with scallion cream cheese','16 house-flavored cream cheeses'],tags:['Bagels','Inwood','Breakfast'],prime:'Early morning - weekdays before the lunch rush',rez:'Walk-in counter'},
+ {n:'Gaonnuri',c:'Korean',area:'K-Town',d:'Breathtaking penthouse views over K-Town. Order Korean barbecue and let the city do the rest.',h:['Korean barbecue','Penthouse views','Group dinner'],tags:['Korean','K-Town','Views'],prime:'Sunset dinner for the view',rez:'Required - book a window seat',dress:'Business casual - no athleisure'},
+ {n:'Barn Joo',c:'Korean',area:'Gastropub',d:'Upscale Korean gastropub. Industrial-chic, well-executed.',h:['Korean small plates','Soju cocktails','Gastropub plates'],tags:['Korean','Gastropub','Drinks'],prime:'Weeknight dinner',rez:'Recommended',dress:'Smart casual'},
+ {n:'Soothr',c:'Thai',area:'East Village',d:'East Village. Northern Thai done with real heat - khao soi that should be on the postcard.',h:['Khao soi','Northern Thai dishes','Spicy noodles'],tags:['Thai','East Village','Spicy'],prime:'Late dinner',rez:'Recommended'},
+ {n:'Fish Cheeks',c:'Thai',area:'NoHo',d:'Coconut crab curry that built the reputation. Modern Thai with seafood at the center.',h:['Coconut crab curry','Seafood Thai plates','Family-style dishes'],tags:['Thai','Seafood','NoHo'],prime:'Weeknight dinner',rez:'Required',dress:'Smart casual'},
+ {n:'Antidote',c:'Chinese',area:'Flatiron',d:'Modern Chinese in the Flatiron. Sleek room, sharp menu - the upscale Chinese dinner for downtown nights.',h:['Modern Chinese plates','Cocktail program','Date-night dining'],tags:['Chinese','Flatiron','Modern'],prime:'Weeknight dinner',rez:'Recommended',dress:'Smart casual'},
+ {n:'Adda',c:'Indian',area:'LIC',d:'LIC regional Indian. Goat brain masala, lamb chops, biryanis with serious depth - the menu reads like a love letter to home cooking.',h:['Goat brain masala','Lamb chops','Biryani'],tags:['Indian','LIC','Regional'],prime:'Weekend dinner',rez:'Required - book weeks ahead',dress:'Smart casual'},
+ {n:'Semma',c:'Indian',area:'West Village',d:'Michelin-starred South Indian. Chef Vijay Kumar cooking the food of his Tamil Nadu childhood - gunpowder dosa, snail biryani, a menu that rewrites what people think Indian food can be.',h:['Gunpowder dosa','Snail biryani','Tamil regional dishes'],tags:['Indian','West Village','Michelin','South Indian'],prime:'Weeknight dinner',rez:'<strong>Required - book 4 weeks out</strong> via Resy',dress:'Smart casual'},
+ {n:'Taverna Kyklades',c:'Mediterranean',area:'Astoria',d:'Astoria seafood institution. The whole grilled fish that built the reputation - fresh, simple, charred over fire.',h:['Whole grilled fish','Octopus','Greek mezze'],tags:['Greek','Astoria','Seafood'],prime:'Weeknight - weekend waits get long',rez:'Walk-in only - expect waits on weekends'},
+ {n:'Ilili NoMad',c:'Mediterranean',area:'NoMad',d:'NoMad Lebanese done at scale. Wood-fired flatbreads, mezze meant to be shared wide, a dining room built for special occasions.',h:['Brussels sprouts','Wood-fired flatbreads','Lebanese mezze'],tags:['Mediterranean','Lebanese','NoMad'],prime:'Weekend dinner - group-friendly',rez:'Required for groups',dress:'Business casual - no athleisure'},
+ {n:'Torrisi',c:'Italian',area:'NoLita',d:'Major Food Group flagship. NoLita Italian-American with serious ambition.',h:['Tortellini in brodo','Chicken alla Romana','Antipasti spread'],tags:['Italian','NoLita','Special Occasion'],prime:'Date-night or special-occasion dinner',rez:'<strong>Required - book 2–4 weeks out</strong> via Resy',dress:'Smart casual - jackets common, not required'},
+ {n:'Lucali',c:'Pizza',area:'Carroll Gardens',d:"The Brooklyn pizza pilgrimage. Mark Iacono's candlelit, BYOB, cash-only pizzeria - wafer-thin crust, three cheeses, fresh basil. The line forms at 2pm.",h:['Plain pie (the move)','Calzone','BYOB - bring the wine'],tags:['Pizza','Brooklyn','Iconic','BYOB'],prime:'Get in line at 2pm for the early seating',rez:'<strong>No reservations</strong> - cash only, BYOB, line up early',website:'https://www.lucali.com/'},
+ {n:"John's of Bleecker Street",c:'Pizza',area:'West Village',d:'Coal-fired brick oven pizza since 1929. No slices, whole pies only. Graffiti-carved booths, an oven that started it all.',h:['Coal-fired pie','Meatball pizza','No slices - order a whole pie'],tags:['Pizza','West Village','Coal-Fired','Classic'],prime:'Early dinner or late lunch',rez:'No reservations - walk-in only',website:'https://johnsofbleecker.com/'},
+ {n:"Scarr's Pizza",c:'Pizza',area:'LES',d:"Scarr Pimentel's LES slice shop. They mill their own flour in the basement - natural ingredients, organic wines, retro pizzeria-meets-bar vibe.",h:['Pepperoni and jalapeño slice','Sicilian square','Vegan pizza'],tags:['Pizza','LES','Slice','Natural Wine'],prime:'Off-peak hours to skip the line',rez:'Walk-in slice counter',website:'https://www.scarrspizza.com/'},
+ {n:"L'Industrie Pizza",c:'Pizza',area:'Williamsburg',d:'The slice that made Williamsburg a pilgrimage. Burrata and vodka sauce on impossibly thin crust.',h:['Burrata slice','Vodka sauce','Williamsburg classic'],tags:['Pizza','Williamsburg','Slice'],prime:'Off-peak hours to skip the line',rez:'Walk-in counter - expect a line'},
+ {n:'Charles Pan Fried Chicken',c:'Soul',area:'Harlem',d:'Harlem institution. Pan-fried chicken with a crust that earns the legend. Order the whole bird.',h:['Pan-fried chicken','Southern sides','Harlem classic'],tags:['Chicken','Harlem','Soul'],prime:'Lunch or early dinner',rez:'Walk-in counter'},
+ {n:'Dominique Ansel Bakery',c:'Dessert',area:'SoHo',d:'The Cronut house. SoHo institution - but order beyond the icon.',h:['Cronut','DKA pastry','Seasonal desserts'],tags:['Dessert','SoHo','Bakery'],prime:'Weekday morning for Cronut availability',rez:'Walk-in - Cronuts sell out by midday'},
+ {n:'Anita Gelato',c:'Dessert',area:'UES',d:'Artisan Italian gelato with a rotating flavor wall that makes ordering hard in the best way.',h:['Artisan gelato','Rotating seasonal flavors','Italian sorbet'],tags:['Dessert','Gelato','UES'],prime:'After dinner or weekend afternoons',rez:'Walk-in only'},
+ {n:'Chelsea Market',c:'Food Halls',area:'Chelsea',d:'The classic. Tourist-meets-local powerhouse, and it still delivers.',h:['Multi-vendor food hall','Tacos, seafood, sweets','Chelsea walking route'],tags:['Food Hall','Chelsea','Group'],prime:'Weekday lunch - weekends mob',rez:'Walk-in'},
+ {n:'Time Out Market New York',c:'Food Halls',area:'DUMBO',d:"Brooklyn's best gathered under one roof, with a view that does half the work.",h:['Food hall vendors','Rooftop views','Group-friendly dinner'],tags:['Food Hall','DUMBO','Views'],prime:'Weekend afternoons or sunset for the skyline',rez:'Walk-in food hall'},
+ {n:'Smorgasburg',c:'Food Events',area:'Williamsburg / Prospect Park',d:"The country's biggest open-air food market. Saturdays in Williamsburg, Sundays in Prospect Park (April–October).",h:['100+ food vendors','Saturdays Williamsburg','Sundays Prospect Park'],tags:['Festival','Brooklyn','Weekend','Seasonal'],prime:'Saturday Williamsburg, Sunday Prospect Park - go early',rez:'Open-air, walk-in - bring cash'},
+ {n:'San Gennaro Festival',c:'Food Events',area:'Little Italy',d:"Little Italy's 11-day September street fair - running since 1926. Sausage and peppers, zeppoles, cannoli.",h:['Sausage and peppers','Zeppoles and cannoli','September Little Italy tradition'],tags:['Festival','Italian','Little Italy','September'],prime:'September, 11-day window - weekends busiest',rez:'Open-air festival'},
+
+ {n:'Casa Ora',c:'Spanish',area:'Williamsburg',d:'Michelin-starred Venezuelan, family-run. Arepas and seasonal tasting plates in a plant-filled Williamsburg room - one of the most personal fine-dining stories in the city.',h:['Venezuelan tasting dishes','Arepas','Seasonal Latin plates'],tags:['Venezuelan','Williamsburg','Michelin'],prime:'Weeknight dinner',rez:'Required - book ahead',dress:'Smart casual'},
+ {n:'The Eighty Six',c:'Steakhouse',area:'West Village',d:"Catch Group's 35-seat jewel box in the old Chumley's speakeasy at 86 Bedford - where the term '86' was born. Art Deco glamour, beef aged below the century-old bar, and one of the hardest tables in the city.",h:['In-house aged steaks','Vaca vieja wagyu cuts','Scratch-made classic cocktails'],tags:['Steakhouse','West Village','Speakeasy','Special Occasion'],prime:'Reservations drop 2 weeks out - or walk in at 4:30pm sharp for a bar seat',rez:'<strong>Required - releases 2 weeks ahead</strong>',dress:'Dress up - it\'s that kind of room'},
+ {n:'Amasa',c:'Steakhouse',area:'Midtown / Rock Center',d:'Contemporary Latin steakhouse inside the Kimpton Era near Rockefeller Center. Chef Christopher Loeffl pairs picanha and churrasco with chimichurri and aji amarillo bearnaise; Bar Amasa upstairs handles the tacos.',h:['Picanha & churrasco','Tuna tiradito','Lobster tostada'],tags:['Latin','Steakhouse','Midtown'],prime:'Tuesday-Saturday dinner, 4-10pm',rez:'Recommended',dress:'Smart casual'},
+ {n:'Cote',c:'Korean',area:'Flatiron',d:'Michelin-starred Korean steakhouse. The Butcher\'s Feast is the move - four cuts grilled at your table, banchan flowing, a 1,200-bottle wine cellar behind it.',h:["Butcher's Feast",'USDA Prime & wagyu cuts','Banchan spread'],tags:['Korean','Steakhouse','Michelin','Flatiron'],prime:'Weeknight dinner - weekends book out fast',rez:'<strong>Required - book weeks ahead</strong> via Resy',dress:'Smart casual'},
+ {n:'Lalaon',c:'Korean',area:'Williamsburg',d:"Seoul's Han River energy on the East River. Sprawling two-story Korean BBQ from the Ms. OHHO team - house-aged meats, makgeolli, and a 100-seat patio with Manhattan views.",h:['House-aged KBBQ cuts','Galbi kimchi fried rice','Makgeolli selection'],tags:['Korean','KBBQ','Williamsburg','Views'],prime:'Sunset patio seat for the skyline',rez:'Recommended - book via Resy'},
+ {n:'Ambassador\'s Clubhouse',c:'Indian',area:'NoMad',d:'The Gymkhana team\'s NYC debut - a two-story Punjabi party mansion on Broadway. BBQ butter chicken chops, seven-layer samosas, and a room that swallows you whole.',h:['BBQ butter chicken chops','Seven-layer aloo mattar satpura','Shahi Patiala seafood tower'],tags:['Indian','Punjabi','NoMad','Special Occasion'],prime:'Dinner nightly; weekend lunch',rez:'<strong>Required - reservations vanish instantly</strong>, set an alarm',dress:'Smart casual - dress for the room'},
+ {n:'Unglo Thai',c:'Thai',area:'UWS / Lincoln Center',d:'Manhattan\'s Thai BBQ pioneer from the Soothr and Chalong teams. Copper tabletop grill with a shabu moat - moo krata done right, garlicky Master Sauce on every table.',h:['Moo krata grill & hot pot sets','Wagyu fried rice','Thai tea cocktails'],tags:['Thai','BBQ','UWS','Group'],prime:'Group dinner - the grill is built for sharing',rez:'Recommended - handy pre-Lincoln Center'},
+ {n:'Lalyn',c:'Thai',area:'Midtown West',d:'Upscale Thai from the Malii team, moonlit and serene. Scallop crudo with tom kha sorbet, pad Thai with grilled river prawns under an egg net - Bangkok elegance off 35th Street.',h:['Scallop crudo, tom kha sorbet','Pad Thai with river prawns','Roasted duck pineapple curry'],tags:['Thai','Midtown','Upscale'],prime:'Dinner - lunch is the quiet move',rez:'Recommended via Resy'},
+ {n:'Selene',c:'Mediterranean',area:'SoHo',d:'Coastal Greek from the Kyma group inside the ModernHaus hotel. Three floors, a retractable-roof atrium, whipped feta with the free sourdough - polished seafood with a DJ booth hum.',h:['Whole grilled fish','Grilled octopus','Honey-brushed saganaki'],tags:['Greek','SoHo','Seafood','Scene'],prime:'Golden-hour cocktails into dinner',rez:'Recommended - book the atrium',dress:'Smart casual'},
+ {n:'Ayah Restaurant',c:'Mediterranean',area:'SoHo',d:'Moroccan spectacle on Houston Street from the Maison Close crew. Hand-painted ceilings, tableside lamb carving, mint tea vodka shots, and belly dancers as the night turns up.',h:['Chhiwat tower of dips','Ayah pastilla','Rack of lamb carved tableside'],tags:['Moroccan','SoHo','Big Night','Group'],prime:'Weekend dinner - it becomes a party after 9',rez:'Required for groups',dress:'Dress up'},
+ {n:'Naxos Brooklyn',c:'Mediterranean',area:'Williamsburg',d:'Greek-Latin fusion on Driggs Ave. Cycladic arches, lamb chops and octopus that earn the hype, and a soundtrack that moves from dinner to dancing.',h:['Lamb chops','Grilled octopus','Whole grilled fish'],tags:['Greek','Latin','Williamsburg','Date Night'],prime:'Weekend dinner - book for the energy',rez:'Recommended',dress:'Smart casual'},
+ {n:"Or'Esh",c:'Mediterranean',area:'SoHo',d:"The reservation everyone's chasing. Live-fire Levantine from Michelin-starred chef Nadav Greenberg and the Corner Store team - Jerusalem bagel with dips, 48-hour short rib, grilled olive martini.",h:['Jerusalem bagel & dips','48-hour short rib','Wagyu skewers'],tags:['Levantine','SoHo','Live Fire','Special Occasion'],prime:'Reservations drop on DoorDash 7 days out at 10am - set the alarm',rez:'<strong>Required - near impossible</strong>, waitlist via website',dress:'Smart Elegant - enforced at the door'},
+ {n:'Sanwits',c:'Bodegas & Delis',area:'East Village',d:'Filipino sandwich culture from Naks chef Eric Valdez. Messy, maximalist builds on First Ave - 500 years of history between two slices of bread.',h:['Filipino chicken sandwich','Maximalist specialty builds','Rotating specials'],tags:['Sandwiches','Filipino','East Village'],prime:'Evenings Wednesday-Sunday, 4-9pm',rez:'Walk-in counter'},
+ {n:'Milano Market - UWS',c:'Bodegas & Delis',area:'Upper West Side',d:'The UWS Italian market standby. Heroes stacked with intent, chicken cutlets that hold the line - the sandwich counter Columbia runs on.',h:['Chicken parm hero','Italian combo sandwiches','Prepared foods counter'],tags:['Deli','Italian','UWS','Sandwiches'],prime:'Lunch - beat the noon rush',rez:'Walk-in counter'},
+ {n:'Tomi Jazz',c:'Jazz',area:'Midtown East',d:'Basement Japanese jazz den. Live sets nightly, sake and highballs, izakaya bites - the Midtown escape hatch that feels like Tokyo at midnight.',h:['Live jazz nightly','Sake & Japanese whisky','Izakaya small plates'],tags:['Jazz','Japanese','Midtown','Late Night'],prime:'Late evening sets - cash cover for the band',rez:'Walk-in - small room, arrive early'},
+ {n:'Tasca',c:'Spanish',area:'Upper West Side',d:'Spanish-Caribbean tavern on Columbus Ave. Tapas and pintxos into large-format paellas, 100+ rums in the cellar - Spain by way of San Juan, Santo Domingo, and Havana.',h:['Paella for two','Jamon iberico','Rum library, 100+ bottles'],tags:['Spanish','Caribbean','UWS','Tapas'],prime:'Dinner or weekend brunch; happy hour at the bar',rez:'Recommended'},
+ {n:'Taqueria Sol Maya',c:'Tacos',area:'East Harlem',d:'East Harlem taqueria doing it the right way. Pastor fresh off the spit, birria consomme with real depth, smoky fried chiles on the side.',h:['Al pastor off the spit','Birria & consomme','Carnitas'],tags:['Tacos','East Harlem','Mexican'],prime:'Lunch or early dinner',rez:'Walk-in'},
+ {n:'Blvd Bistro',c:'Soul',area:'Harlem',d:"Chef Carlos Swepson's Lenox Ave soul kitchen. The buttermilk biscuits are the legend - Southern brunch worth the Sunday line.",h:['Buttermilk biscuits','Shrimp and grits','Fried chicken'],tags:['Soul','Harlem','Brunch'],prime:'Weekend brunch - go early, the line is real',rez:'Recommended for brunch'},
+ {n:'File Gumbo Bar',c:'Soul',area:'Tribeca',d:'New Orleans in Tribeca. Gumbo built to order in steam kettles at the bar - pick your roux, protein, and heat. Chargrilled oysters and beignets round it out.',h:["Tiny's Gumbo - all in",'Chargrilled oysters','Brown butter bourbon bread pudding'],tags:['Cajun','Creole','Tribeca','Soul'],prime:'Weekend brunch or after-work happy hour',rez:'Recommended - bar seats for the kettle show'},
+ {n:'Sei Less',c:'Chinese',area:'Midtown',d:'The hip-hop clubstaurant of record. Modern pan-Asian plates, a celebrity wall that updates itself weekly, and a room that runs late.',h:['Wagyu fried rice','Peking duck','Dim sum towers'],tags:['Pan-Asian','Midtown','Scene','Late Night'],prime:'Late dinner Thursday-Saturday',rez:'<strong>Required</strong> for prime slots',dress:'Dress code enforced - no athleisure'},
+ {n:"Carmine's",c:'Italian',area:'Times Square / UWS',d:'Family-style Italian-American at full volume. Platters built for six, red sauce done proud - the group dinner that never misses.',h:['Family-style pastas','Chicken parmigiana','Titanic-sized platters'],tags:['Italian','Family Style','Group','Classic'],prime:'Pre-theater or big group dinner',rez:'Recommended for groups'},
+ {n:'La Lanterna di Vittorio',c:'Italian',area:'Greenwich Village',d:'MacDougal Street institution. Fireplace in winter, garden in summer, tiramisu and wine by candlelight - with live jazz in the bar next door.',h:['Tiramisu','Wood-fired thin pizzas','Garden & fireplace seating'],tags:['Dessert','Village','Date Night','Jazz'],prime:'Late evening - dessert and a set of jazz',rez:'Walk-in friendly; book for weekend evenings'},
+ {n:'Shaver Hall',c:'Food Halls',area:'Midtown / Fifth Ave',d:'The new Midtown heavyweight inside the old Lord & Taylor flagship. 11 chef-curated eateries, three restaurants, two bars, and a 200-foot cheese conveyor at Pick & Cheese.',h:['Pick & Cheese conveyor belt','Tallow Steakhouse martinis','F&F Pizzeria & Tompkins Square Bagels'],tags:['Food Hall','Midtown','Group','New'],prime:'After-work drinks or pre-Bryant Park evenings',rez:'Walk-in food hall - no cash, cards only'},
+ {n:'Cleo',c:'After Work',area:'West Village',d:'Warm, design-forward rotisserie built around roasted chicken, bright sauces, and easy summer sidewalk energy.',h:['Rotisserie chicken','Bright sauces','Seasonal vegetables'],tags:['Rotisserie','West Village','Casual Date'],prime:'Early dinner - sidewalk seats in summer',rez:'Walk-in friendly',website:'https://www.cleodowntown.com/'},
+ {n:'Hwaro',c:'Korean',area:'Flatiron',d:'Polished Korean barbecue room built for a warmer, more intimate dinner - smoky, social, and still composed.',h:['Korean BBQ','Grilled meats','Cocktails'],tags:['Korean','KBBQ','Flatiron','Date Night'],prime:'Weeknight dinner',rez:'Recommended'},
+ {n:'Il Buco',c:'Italian',area:'NoHo',d:'Rustic, candlelit, deeply New York. The date-night room that feels lived-in, romantic, and quietly special.',h:['Seasonal Italian plates','Rustic Mediterranean dishes','Wine list'],tags:['Italian','NoHo','Date Night','Classic'],prime:'Dinner - book a candlelit table',rez:'Recommended',website:'https://www.ilbuco.com/'},
+ {n:'Osteria La Baia',c:'Italian',area:'Midtown',d:'Polished Midtown Italian for composed dinners and work-adjacent meals - the service and setting stay buttoned up.',h:['Coastal Italian plates','Pastas','Cocktails'],tags:['Italian','Midtown','Business Dinner'],prime:'Weeknight dinner',rez:'Recommended',website:'https://www.osterialabaia.com/'},
+ {n:'Giulietta',c:'Italian',area:'Midtown East',d:'All-day coastal Italian at the MetLife Building. Bright and easy for after-work pasta, pizza, or a polished Midtown meal.',h:['Pastas','Pizzas','Spritzes'],tags:['Italian','Midtown East','After Work'],prime:'After-work - steps from Grand Central',rez:'Walk-in friendly; book for groups',website:'https://www.giuliettanyc.com/'},
+ {n:'Columns Wine Bar',c:'Flights',area:'West Village',d:'Polished wine-bar stop built for tasting, comparing, and letting the night unfold glass by glass.',h:['Wine flights','Small plates','Date-night pours'],tags:['Wine Bar','West Village','Flights'],prime:'Weeknight evening',rez:'Walk-in friendly'},
+ {n:'Amelie',c:'Flights',area:'West Village',d:'West Village wine-bar staple with French bistro energy, strong pours, and an easy after-work-to-date-night transition.',h:['Wine flights','Oysters','French small plates'],tags:['Wine Bar','French','West Village'],prime:'Happy hour into dinner',rez:'Recommended on weekends',website:'https://www.ameliewinebar.com/'},
+ {n:'Chama Mama',c:'Flights',area:'Chelsea',d:'Georgian warmth with a natural wine angle, khachapuri, and a table built for ordering wide.',h:['Khachapuri','Georgian wine','Shared plates'],tags:['Georgian','Chelsea','Natural Wine'],prime:'Group dinner - order wide',rez:'Recommended',website:'https://www.chamamama.com/'},
+ {n:'Aldo Sohm Wine Bar',c:'Flights',area:'Midtown',d:'A serious wine room that still feels approachable. Curated pours, polished service, the Midtown wine-flight plan.',h:['Wine flights','Charcuterie','Expert pairings'],tags:['Wine Bar','Midtown','Flights'],prime:'After-work into evening',rez:'Recommended',website:'https://www.aldosohmwinebar.com/'},
+ {n:'La Compagnie des Vins Surnaturels',c:'Flights',area:'SoHo',d:'Stylish SoHo wine bar for deep lists, elegant pours, and a night that starts quieter than it ends.',h:['Wine flights','Rare bottles','French-leaning small plates'],tags:['Wine Bar','SoHo','Flights'],prime:'Evening - it fills late',rez:'Recommended',website:'https://www.compagnienyc.com/'},
+ {n:'Vanguard Wine Bar',c:'Flights',area:'Upper West Side',d:'Easy UWS wine bar for flights, boards, and a relaxed neighborhood night with enough polish.',h:['Wine flights','Cheese boards','Neighborhood pours'],tags:['Wine Bar','UWS','Flights'],prime:'Weeknight neighborhood night',rez:'Walk-in friendly',website:'https://www.vanguard-nyc.com/'},
+ {n:'Smoke Jazz Club',c:'Jazz',area:'Upper West Side',d:'Classic UWS jazz room for dinner, cocktails, and serious musicianship without losing the date-night feel.',h:['Live jazz sets','Supper-club dinner','Cocktails'],tags:['Jazz','UWS','Supper Club'],prime:'Evening sets - book the dinner seating',rez:'Required for sets',website:'https://www.smokejazz.com/'},
+ {n:'Jazz at Lincoln Center',c:'Jazz',area:'Columbus Circle',d:"The cleanest elevated jazz move in the city: world-class programming and a polished night-out structure. Dizzy's Club has the skyline behind the stage.",h:["Dizzy's Club sets",'World-class programming','Skyline views'],tags:['Jazz','Columbus Circle','Views'],prime:'Evening sets at Dizzy\'s Club',rez:'Required - book sets ahead',website:'https://jazz.org/'},
+ {n:'Blue Note Jazz',c:'Jazz',area:'Greenwich Village',d:'The Village icon. The name, the room, and a night that feels unmistakably New York.',h:['Live jazz','Late sets','Village night out'],tags:['Jazz','Village','Iconic'],prime:'Late sets',rez:'Required - book ahead',website:'https://www.bluenotejazz.com/nyc/'},
+ {n:'Tatiana',c:'Soul',area:'Lincoln Center',d:"Kwame Onwuachi's electric Lincoln Center restaurant - personal, polished, and one of the most essential New York tables.",h:['Short rib pastrami suya','Afro-Caribbean flavors','Celebratory dinner'],tags:['Afro-Caribbean','Lincoln Center','Must Try'],prime:'Dinner - among the hardest tables in NYC',rez:'<strong>Required - book the second reservations drop</strong>',dress:'Smart casual',website:'https://www.tatiananyc.com/'},
+ {n:'Cocotazo',c:'Spanish',area:'East Harlem',d:'East Harlem Puerto Rican comfort - mofongo, pernil, and the kind of neighborhood flavor that anchors the list.',h:['Mofongo','Pernil','Puerto Rican classics'],tags:['Puerto Rican','East Harlem','Comfort'],prime:'Lunch or early dinner',rez:'Walk-in friendly'},
+ {n:'Sala Thai',c:'Thai',area:'Upper West Side',d:'Joyful Thai dining on the UWS. Dependable, warm, flavor without friction.',h:['Thai classics','Curries','Noodles'],tags:['Thai','UWS','Neighborhood Gem'],prime:'Weeknight dinner',rez:'Walk-in friendly',website:'https://salathainyc.com/'},
+ {n:'KUU Ramen',c:'Ramen and Pho',area:'Upper East Side',d:'Dependable UES ramen stop for a warm, low-friction bowl before or after the rest of the night.',h:['Ramen bowls','Gyoza','Quick comfort meal'],tags:['Ramen','UES','Comfort'],prime:'Weeknight dinner',rez:'Walk-in'},
+ {n:'Boro Brine',c:'Seafood',area:'Williamsburg',d:'Seafood-driven Williamsburg restaurant and cocktail bar - raw-bar energy, martinis, and late-night edge.',h:['Raw bar','Martinis','Tasting counter'],tags:['Seafood','Williamsburg','Raw Bar','Late Night'],prime:'Late dinner into drinks',rez:'Recommended',website:'https://www.borobrine.com/'},
+ {n:'Massawa',c:'UWS & Columbia',area:'Morningside Heights',d:'Columbia-area anchor for Eritrean and Ethiopian plates - injera, stews, and the group table that feels easy after a long day.',h:['Vegan combo platter','Injera','Eritrean classics'],tags:['Eritrean','Ethiopian','Columbia','Group'],prime:'Group dinner - order the platters',rez:'Walk-in friendly',website:'https://www.massawanyc.com/'},
+ {n:'Tsumo',c:'UWS & Columbia',area:'Upper West Side',d:'Japanese neighborhood move for small plates, sushi, and an easy dinner close to campus.',h:['Sushi','Izakaya plates','Sake'],tags:['Japanese','Izakaya','UWS'],prime:'Weeknight dinner',rez:'Walk-in friendly'},
+ {n:'Sushi Yasaka',c:'UWS & Columbia',area:'Upper West Side',d:'Reliable UWS sushi institution - clean omakase energy without overcomplicating the night.',h:['Omakase','Nigiri','Sushi sets'],tags:['Sushi','Omakase','UWS'],prime:'Weeknight omakase - great value',rez:'Recommended',website:'https://www.sushiyasaka.com/'},
+ {n:'Dim Sum Bloom',c:'UWS & Columbia',area:'Upper West Side',d:'Practical UWS dim sum stop for dumplings, buns, and a group-friendly table close to the neighborhood.',h:['Soup dumplings','Shumai','Dim sum plates'],tags:['Dim Sum','Chinese','UWS'],prime:'Weekend dim sum or group dinner',rez:'Walk-in friendly'},
+ {n:'Pisticci',c:'UWS & Columbia',area:'Morningside Heights',d:'Morningside Heights standby with warm neighborhood Italian energy - works for colleagues, friends, or a casual date.',h:['Pasta','Italian comfort plates','Neighborhood dinner'],tags:['Italian','Columbia','Neighborhood'],prime:'Weeknight dinner',rez:'Walk-in friendly',website:'https://www.pisticcinyc.com/'},
+ {n:'Nai Brother Sauerkraut Fish',c:'UWS & Columbia',area:'Upper West Side',d:'Focused Chinese fish-soup specialist - a sharper UWS meal when the usual rotation won\'t cut it.',h:['Sauerkraut fish','Spicy broth','Shared bowls'],tags:['Chinese','Fish Soup','UWS'],prime:'Dinner - share the bowl',rez:'Walk-in'},
+ {n:'Moon Kee',c:'UWS & Columbia',area:'Upper West Side',d:'UWS Chinese option for hot pot and long-table comfort - useful when the group wants something interactive.',h:['Hot pot','Broths','Chinese shared plates'],tags:['Chinese','Hot Pot','UWS','Group'],prime:'Group dinner',rez:'Recommended for groups'},
+ {n:'Marlow Bistro',c:'UWS & Columbia',area:'Morningside Heights',d:'Neighborhood bistro near Columbia with Mediterranean-leaning plates - calm dinners that still feel intentional.',h:['Mediterranean plates','Bistro dinner','Wine'],tags:['Mediterranean','Bistro','Columbia'],prime:'Weeknight dinner',rez:'Recommended',website:'https://www.marlowbistro.com/'},
+ {n:'The Expat',c:'UWS & Columbia',area:'Morningside Heights',d:'Close-to-campus bistro-bar for drinks and low-friction dinners - the plan that can stay casual or turn into more.',h:['Cocktails','Bistro plates','Neighborhood bar energy'],tags:['Bistro','Bar','Columbia'],prime:'Evening drinks into dinner',rez:'Walk-in friendly',website:'https://www.theexpatnyc.com/'},
+
+];
+
+// Track user-added spots
+let userAdded = new Set();
+
+// ─────────────────────────────────────────
+// TRANSIT DATA
+// ─────────────────────────────────────────
+const TRANSIT = {
+  'Debajo':{ stops:[{name:'2 Av',lines:['F'],walk:'3 min'},{name:'Delancey St',lines:['J','M','Z'],walk:'5 min'}] },
+  'Atomix':{ stops:[{name:'28 St',lines:['6'],walk:'3 min'},{name:'33 St',lines:['6'],walk:'4 min'}], note:'Reservations release monthly on Tock.' },
+  'Atera':{ stops:[{name:'Chambers St',lines:['1','2','3'],walk:'4 min'},{name:'Franklin St',lines:['1'],walk:'5 min'}] },
+  'Casa Mono':{ stops:[{name:'14 St-Union Sq',lines:['4','5','6','L','N','Q','R','W'],walk:'5 min'}] },
+  'Felice 56':{ stops:[{name:'51 St',lines:['6'],walk:'2 min'},{name:'Lexington Av/53 St',lines:['E','M'],walk:'4 min'}] },
+  'Sugar Monk':{ stops:[{name:'137 St-City College',lines:['1'],walk:'4 min'},{name:'135 St',lines:['B','C'],walk:'6 min'}] },
+  'Los Tacos No. 1':{ stops:[{name:'23 St',lines:['C','E'],walk:'3 min'},{name:'14 St',lines:['A','C','E'],walk:'5 min'}], note:'Inside Chelsea Market' },
+  'Birria LES':{ stops:[{name:'Delancey St',lines:['J','M','Z'],walk:'4 min'},{name:'Essex St',lines:['F'],walk:'4 min'}] },
+  'Esse Taco':{ stops:[{name:'Spring St',lines:['C','E'],walk:'4 min'},{name:'Prince St',lines:['N','R','W'],walk:'5 min'}] },
+  'Tacombi':{ stops:[{name:'Prince St',lines:['N','R','W'],walk:'3 min'},{name:'Broadway-Lafayette',lines:['B','D','F','M'],walk:'4 min'}] },
+  'Anixi':{ stops:[{name:'23 St',lines:['C','E'],walk:'4 min'},{name:'14 St',lines:['A','C','E'],walk:'6 min'}] },
+  'Sunday Morning':{ stops:[{name:'Delancey St-Essex St',lines:['F','J','M','Z'],walk:'4 min'},{name:'2 Av',lines:['F'],walk:'6 min'}] },
+  'Kazunori':{ stops:[{name:'14 St-Union Sq',lines:['4','5','6','L','N','Q','R','W'],walk:'4 min'}] },
+  "Melba's":{ stops:[{name:'116 St',lines:['B','C'],walk:'4 min'},{name:'125 St',lines:['A','B','C','D'],walk:'7 min'}] },
+  'Time Out Market New York':{ stops:[{name:'York St',lines:['F'],walk:'4 min'},{name:'High St',lines:['A','C'],walk:'5 min'}] },
+  'Carbone':{ stops:[{name:'W 4 St',lines:['A','C','E'],walk:'4 min'},{name:'Houston St',lines:['1'],walk:'5 min'}], note:'Reservations open daily at 10am on Resy - act fast.' },
+  '4 Charles Prime Rib':{ stops:[{name:'Christopher St',lines:['1'],walk:'4 min'},{name:'W 4 St',lines:['A','C','E'],walk:'5 min'}], note:'Subterranean - look for the small townhouse entrance.' },
+  'Tao Downtown':{ stops:[{name:'23 St',lines:['C','E'],walk:'4 min'},{name:'23 St',lines:['1'],walk:'5 min'}] },
+  'Buddakan':{ stops:[{name:'23 St',lines:['C','E'],walk:'3 min'},{name:'23 St',lines:['1'],walk:'5 min'}] },
+  'Catch NYC':{ stops:[{name:'14 St',lines:['A','C','E'],walk:'4 min'},{name:'8 Av',lines:['L'],walk:'5 min'}] },
+  'Ippudo':{ stops:[{name:'Astor Pl',lines:['6'],walk:'4 min'},{name:'8 St-NYU',lines:['N','R','W'],walk:'5 min'}] },
+  'Gaonnuri':{ stops:[{name:'34 St-Herald Sq',lines:['B','D','F','M','N','Q','R','W'],walk:'5 min'}] },
+  'Barn Joo':{ stops:[{name:'23 St',lines:['N','R','W'],walk:'3 min'}] },
+  'Soothr':{ stops:[{name:'1 Av',lines:['L'],walk:'4 min'},{name:'Astor Pl',lines:['6'],walk:'6 min'}] },
+  'Fish Cheeks':{ stops:[{name:'Broadway-Lafayette',lines:['B','D','F','M'],walk:'3 min'},{name:'Bleecker St',lines:['6'],walk:'4 min'}] },
+  'Antidote':{ stops:[{name:'23 St',lines:['F','M','R','W','6'],walk:'3 min'}] },
+  'Adda':{ stops:[{name:'Court Sq',lines:['G','7','E','M'],walk:'8 min'}], note:'LIC destination - worth the trip.' },
+  'Semma':{ stops:[{name:'Christopher St',lines:['1'],walk:'3 min'},{name:'W 4 St',lines:['A','B','C','D','E','F','M'],walk:'5 min'}], note:'Reservations book out weeks ahead.' },
+  'Taverna Kyklades':{ stops:[{name:'Astoria-Ditmars Blvd',lines:['N','W'],walk:'4 min'}], note:'No reservations on weekends - expect a wait.' },
+  'Ilili NoMad':{ stops:[{name:'28 St',lines:['6'],walk:'3 min'},{name:'28 St',lines:['N','R','W'],walk:'5 min'}] },
+  'Torrisi':{ stops:[{name:'Spring St',lines:['6'],walk:'3 min'},{name:'Prince St',lines:['N','R','W'],walk:'4 min'}], note:'Reservations required.' },
+  'Lucali':{ stops:[{name:'Carroll St',lines:['F','G'],walk:'5 min'},{name:'Bergen St',lines:['F','G'],walk:'8 min'}], note:'Cash only, BYOB.' },
+  "John's of Bleecker Street":{ stops:[{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'3 min'}], note:'Whole pies only - no slices.' },
+  "Scarr's Pizza":{ stops:[{name:'East Broadway',lines:['F'],walk:'4 min'},{name:'Delancey St-Essex St',lines:['F','J','M','Z'],walk:'6 min'}] },
+  "L'Industrie Pizza":{ stops:[{name:'Bedford Av',lines:['L'],walk:'4 min'},{name:'Lorimer St',lines:['L'],walk:'5 min'}] },
+  'Charles Pan Fried Chicken':{ stops:[{name:'145 St',lines:['A','B','C','D'],walk:'4 min'},{name:'145 St',lines:['1'],walk:'6 min'}] },
+  "Amy Ruth's":{ stops:[{name:'116 St',lines:['B','C'],walk:'3 min'},{name:'116 St',lines:['2','3'],walk:'6 min'}] },
+  'Blue Sky Deli Hajis':{ stops:[{name:'103 St',lines:['6'],walk:'3 min'}] },
+  'Inwood Bagels':{ stops:[{name:'207 St',lines:['1'],walk:'3 min'},{name:'Inwood-207 St',lines:['A'],walk:'5 min'}] },
+  'Dominique Ansel Bakery':{ stops:[{name:'Spring St',lines:['C','E'],walk:'3 min'},{name:'Prince St',lines:['N','R','W'],walk:'4 min'}] },
+  'Anita Gelato':{ stops:[{name:'77 St',lines:['6'],walk:'3 min'},{name:'72 St',lines:['Q'],walk:'5 min'}] },
+  'Chelsea Market':{ stops:[{name:'14 St',lines:['A','C','E'],walk:'2 min'},{name:'8 Av',lines:['L'],walk:'3 min'}] },
+  'Smorgasburg':{ stops:[{name:'Bedford Av',lines:['L'],walk:'12 min'},{name:'Prospect Park',lines:['B','Q','S'],walk:'5 min'}], note:'Williamsburg on Saturdays, Prospect Park on Sundays.' },
+  'San Gennaro Festival':{ stops:[{name:'Canal St',lines:['6','J','N','Q','R','W','Z'],walk:'3 min'}], note:'Mulberry Street, Little Italy. 11 days every September.' },
+  "Melba's":{ stops:[{name:'Cathedral Pkwy-110 St',lines:['B','C'],walk:'3 min'},{name:'Central Park North-110 St',lines:['2','3'],walk:'6 min'}] },
+  "Amy Ruth's":{ stops:[{name:'116 St',lines:['2','3'],walk:'2 min'},{name:'116 St',lines:['B','C'],walk:'5 min'}] },
+  'File Gumbo Bar':{ stops:[{name:'Franklin St',lines:['1'],walk:'2 min'},{name:'Canal St',lines:['A','C','E'],walk:'4 min'}] },
+  "John's of Bleecker Street":{ stops:[{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'4 min'},{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'6 min'}] },
+  "Scarr's Pizza":{ stops:[{name:'East Broadway',lines:['F'],walk:'4 min'},{name:'Grand St',lines:['B','D'],walk:'6 min'}] },
+  "L'Industrie Pizza":{ stops:[{name:'Marcy Av',lines:['J','M','Z'],walk:'7 min'},{name:'Bedford Av',lines:['L'],walk:'12 min'}] },
+  'Casa Ora':{ stops:[{name:'Montrose Av',lines:['L'],walk:'4 min'},{name:'Morgan Av',lines:['L'],walk:'8 min'}] },
+  'The Eighty Six':{ stops:[{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'4 min'},{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'7 min'}] },
+  'Amasa':{ stops:[{name:'47-50 Sts-Rockefeller Ctr',lines:['B','D','F','M'],walk:'2 min'},{name:'49 St',lines:['N','R','W'],walk:'4 min'}] },
+  'Cote':{ stops:[{name:'23 St',lines:['N','R','W'],walk:'2 min'},{name:'23 St',lines:['F','M'],walk:'3 min'}] },
+  'Lalaon':{ stops:[{name:'Bedford Av',lines:['L'],walk:'7 min'}], note:'NYC Ferry (North Williamsburg) is also steps away.' },
+  "Ambassador's Clubhouse":{ stops:[{name:'34 St-Herald Sq',lines:['B','D','F','M','N','Q','R','W'],walk:'3 min'},{name:'28 St',lines:['R','W'],walk:'4 min'}] },
+  'Unglo Thai':{ stops:[{name:'66 St-Lincoln Center',lines:['1'],walk:'3 min'},{name:'59 St-Columbus Circle',lines:['A','B','C','D','1'],walk:'6 min'}] },
+  'Lalyn':{ stops:[{name:'34 St-Penn Station',lines:['A','C','E'],walk:'2 min'},{name:'34 St-Herald Sq',lines:['B','D','F','M','N','Q','R','W'],walk:'5 min'}] },
+  'Selene':{ stops:[{name:'Canal St',lines:['A','C','E'],walk:'3 min'},{name:'Canal St',lines:['1'],walk:'4 min'}] },
+  'Ayah Restaurant':{ stops:[{name:'Broadway-Lafayette St',lines:['B','D','F','M'],walk:'3 min'},{name:'Prince St',lines:['N','R','W'],walk:'5 min'}] },
+  'Naxos Brooklyn':{ stops:[{name:'Bedford Av',lines:['L'],walk:'5 min'},{name:'Nassau Av',lines:['G'],walk:'10 min'}] },
+  "Or'Esh":{ stops:[{name:'Spring St',lines:['C','E'],walk:'4 min'},{name:'Prince St',lines:['N','R','W'],walk:'5 min'}] },
+  'Sanwits':{ stops:[{name:'1 Av',lines:['L'],walk:'5 min'},{name:'Astor Pl',lines:['6'],walk:'8 min'}] },
+  'Milano Market - UWS':{ stops:[{name:'Cathedral Pkwy-110 St',lines:['1'],walk:'2 min'},{name:'116 St-Columbia University',lines:['1'],walk:'4 min'}] },
+  'Tomi Jazz':{ stops:[{name:'Lexington Av/53 St',lines:['E','M'],walk:'2 min'},{name:'51 St',lines:['6'],walk:'3 min'}] },
+  'Tasca':{ stops:[{name:'86 St',lines:['B','C'],walk:'3 min'},{name:'79 St',lines:['1'],walk:'8 min'}] },
+  'Taqueria Sol Maya':{ stops:[{name:'103 St',lines:['6'],walk:'4 min'},{name:'110 St',lines:['6'],walk:'5 min'}] },
+  'Blvd Bistro':{ stops:[{name:'116 St',lines:['B','C'],walk:'3 min'},{name:'116 St',lines:['2','3'],walk:'7 min'}] },
+  'Sei Less':{ stops:[{name:'34 St-Herald Sq',lines:['B','D','F','M','N','Q','R','W'],walk:'4 min'},{name:'Times Sq-42 St',lines:['1','2','3','7','N','Q','R','W'],walk:'6 min'}] },
+  "Carmine's":{ stops:[{name:'Times Sq-42 St',lines:['1','2','3','7','N','Q','R','W'],walk:'2 min'},{name:'42 St-Port Authority',lines:['A','C','E'],walk:'4 min'}] },
+  'La Lanterna di Vittorio':{ stops:[{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'3 min'},{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'7 min'}] },
+  'Shaver Hall':{ stops:[{name:'42 St-Bryant Pk',lines:['B','D','F','M'],walk:'3 min'},{name:'Grand Central-42 St',lines:['4','5','6','7'],walk:'7 min'}] },
+  'Cleo':{ stops:[{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'4 min'},{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'6 min'}] },
+  'Hwaro':{ stops:[{name:'23 St',lines:['N','R','W'],walk:'3 min'},{name:'28 St',lines:['6'],walk:'5 min'}] },
+  'Il Buco':{ stops:[{name:'Bleecker St',lines:['6'],walk:'3 min'},{name:'Broadway-Lafayette St',lines:['B','D','F','M'],walk:'4 min'}] },
+  'Osteria La Baia':{ stops:[{name:'7 Av',lines:['B','D','E'],walk:'3 min'},{name:'50 St',lines:['1'],walk:'3 min'}] },
+  'Giulietta':{ stops:[{name:'Grand Central-42 St',lines:['4','5','6','7'],walk:'2 min'}], note:'Inside the MetLife Building - direct from Grand Central.' },
+  'Columns Wine Bar':{ stops:[{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'4 min'},{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'5 min'}] },
+  'Amelie':{ stops:[{name:'8 St-NYU',lines:['N','R','W'],walk:'3 min'},{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'4 min'}] },
+  'Chama Mama':{ stops:[{name:'14 St',lines:['1','2','3'],walk:'2 min'},{name:'14 St / 8 Av',lines:['A','C','E','L'],walk:'4 min'}] },
+  'Aldo Sohm Wine Bar':{ stops:[{name:'50 St',lines:['1'],walk:'2 min'},{name:'47-50 Sts-Rockefeller Ctr',lines:['B','D','F','M'],walk:'4 min'}] },
+  'La Compagnie des Vins Surnaturels':{ stops:[{name:'Canal St',lines:['N','Q','R','W','6'],walk:'3 min'},{name:'Spring St',lines:['6'],walk:'4 min'}] },
+  'Vanguard Wine Bar':{ stops:[{name:'96 St',lines:['1','2','3'],walk:'4 min'},{name:'96 St',lines:['B','C'],walk:'8 min'}] },
+  'Smoke Jazz Club':{ stops:[{name:'103 St',lines:['1'],walk:'2 min'},{name:'Cathedral Pkwy-110 St',lines:['1'],walk:'4 min'}] },
+  'Jazz at Lincoln Center':{ stops:[{name:'59 St-Columbus Circle',lines:['A','B','C','D','1'],walk:'2 min'}] },
+  'Blue Note Jazz':{ stops:[{name:'W 4 St-Wash Sq',lines:['A','C','E','B','D','F','M'],walk:'2 min'},{name:'Christopher St-Sheridan Sq',lines:['1'],walk:'6 min'}] },
+  'Tatiana':{ stops:[{name:'66 St-Lincoln Center',lines:['1'],walk:'2 min'},{name:'59 St-Columbus Circle',lines:['A','B','C','D','1'],walk:'8 min'}] },
+  'Cocotazo':{ stops:[{name:'103 St',lines:['6'],walk:'4 min'},{name:'110 St',lines:['6'],walk:'6 min'}] },
+  'Sala Thai':{ stops:[{name:'86 St',lines:['1'],walk:'4 min'},{name:'86 St',lines:['B','C'],walk:'8 min'}] },
+  'KUU Ramen':{ stops:[{name:'77 St',lines:['6'],walk:'6 min'},{name:'72 St',lines:['Q'],walk:'8 min'}] },
+  'Boro Brine':{ stops:[{name:'Bedford Av',lines:['L'],walk:'6 min'},{name:'Metropolitan Av / Lorimer St',lines:['G','L'],walk:'10 min'}] },
+  'Massawa':{ stops:[{name:'125 St',lines:['1'],walk:'5 min'},{name:'116 St-Columbia University',lines:['1'],walk:'6 min'}] },
+  'Tsumo':{ stops:[{name:'Cathedral Pkwy-110 St',lines:['1'],walk:'4 min'},{name:'103 St',lines:['1'],walk:'6 min'}] },
+  'Sushi Yasaka':{ stops:[{name:'72 St',lines:['1','2','3'],walk:'2 min'},{name:'72 St',lines:['B','C'],walk:'5 min'}] },
+  'Dim Sum Bloom':{ stops:[{name:'103 St',lines:['1'],walk:'4 min'},{name:'96 St',lines:['1','2','3'],walk:'8 min'}] },
+  'Pisticci':{ stops:[{name:'125 St',lines:['1'],walk:'2 min'},{name:'116 St-Columbia University',lines:['1'],walk:'8 min'}] },
+  'Nai Brother Sauerkraut Fish':{ stops:[{name:'103 St',lines:['1'],walk:'3 min'},{name:'96 St',lines:['1','2','3'],walk:'7 min'}] },
+  'Moon Kee':{ stops:[{name:'103 St',lines:['1'],walk:'3 min'},{name:'Cathedral Pkwy-110 St',lines:['1'],walk:'6 min'}] },
+  'Marlow Bistro':{ stops:[{name:'Cathedral Pkwy-110 St',lines:['1'],walk:'3 min'},{name:'Cathedral Pkwy-110 St',lines:['B','C'],walk:'6 min'}] },
+  'The Expat':{ stops:[{name:'125 St',lines:['1'],walk:'5 min'},{name:'116 St-Columbia University',lines:['1'],walk:'6 min'}] },
+};
+
+const LINE_COLORS = {
+  '1':'#EE352E','2':'#EE352E','3':'#EE352E',
+  '4':'#00933C','5':'#00933C','6':'#00933C',
+  '7':'#B933AD',
+  'A':'#0039A6','C':'#0039A6','E':'#0039A6',
+  'B':'#FF6319','D':'#FF6319','F':'#FF6319','M':'#FF6319',
+  'G':'#6CBE45',
+  'J':'#996633','Z':'#996633',
+  'L':'#A7A9AC',
+  'N':'#FCCC0A','Q':'#FCCC0A','R':'#FCCC0A','W':'#FCCC0A',
+  'S':'#808183',
+};
+
+const PREFERRED_ORDER = [
+  'Favorites','After Work',"Chef's Counter",'Happy Hour','Tacos','Vegan','Spanish',
+  'Brunch','Flights','Ramen and Pho','Handrolls','Soul','Bodegas & Delis','Korean',
+  'Thai','Chinese','Indian','Mediterranean','Italian','Pizza','Street Carts',
+  'Dessert','Food Halls','Chelsea & Highline','Steakhouse','Food Events'
+];
+
+// ─────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────
+let activeCategory = 'All';
+let currentObserver = null;
+let editIndex = -1;
+let pendingTags = [];
+
+// Undo stack — each entry is a deep snapshot of { restaurants, userAdded }
+const ORIGINAL_SNAPSHOT = JSON.stringify(restaurants.map(r => ({...r})));
+const undoStack = []; // stack of prior states
+const MAX_UNDO = 50;
+
+function snapshot() {
+  return JSON.stringify(restaurants.map(r => ({...r})));
+}
+
+function pushUndo() {
+  undoStack.push({ state: snapshot(), userAdded: JSON.stringify([...userAdded]) });
+  if (undoStack.length > MAX_UNDO) undoStack.shift();
+  updateUndoBtn();
+}
+
+function updateUndoBtn() {
+  const btn = document.getElementById('undoBtn');
+  if (btn) btn.disabled = undoStack.length === 0;
+}
+
+// ─────────────────────────────────────────
+// UTILS
+// ─────────────────────────────────────────
+const q = str => encodeURIComponent(str);
+const placeQuery = r => [r.n, r.area, 'New York NY'].filter(Boolean).join(' ').trim();
+const linkFor = (r, type) => type === 'directions'
+  ? `https://www.google.com/maps/dir/?api=1&destination=${q(placeQuery(r))}`
+  : `https://www.google.com/maps/search/?api=1&query=${q(placeQuery(r))}`;
+const mapSrc = r => `https://www.google.com/maps?q=${q(placeQuery(r))}&output=embed`;
+
+function showToast(msg, duration = 2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ─────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────
+const _mem = {};
+const store = {
+  get(k){ try { return window.localStorage.getItem(k); } catch(e) { return _mem[k] ?? null; } },
+  set(k,v){ try { window.localStorage.setItem(k,v); } catch(e) { _mem[k] = v; } }
+};
+let beenSet = new Set(JSON.parse(store.get('nycg_been') || '[]'));
+let wantSet = new Set(JSON.parse(store.get('nycg_want') || '[]'));
+const saveMarks = () => { store.set('nycg_been', JSON.stringify([...beenSet])); store.set('nycg_want', JSON.stringify([...wantSet])); };
+
+const CHIPS = ['All','\u2665 Saved','\u2713 Been','Date Night','Group','Late Night','Michelin','Jazz','Views'];
+let activeChip = 'All';
+
+function chipMatch(r) {
+  if (activeChip === 'All') return true;
+  if (activeChip === '\u2665 Saved') return wantSet.has(r.n);
+  if (activeChip === '\u2713 Been') return beenSet.has(r.n);
+  return (r.tags || []).includes(activeChip) || r.c === activeChip;
+}
+
+function match(r) {
+  const term = document.getElementById('searchInput').value.trim().toLowerCase();
+  const catOK = activeCategory === 'All' || r.c === activeCategory;
+  const text = [r.n, r.c, r.area, r.d, ...(r.tags || []), ...(r.h || [])].join(' ').toLowerCase();
+  return catOK && chipMatch(r) && (!term || text.includes(term));
+}
+
+// ── Scoreboard ──
+const SB_LABELS = [[0,"The city's waiting."],[1,'First one down.'],[5,'Building momentum.'],[10,'Double digits. Respect.'],[25,'Quarter of the list. Serious.'],[50,'Half the city conquered.'],[80,'Legend status loading\u2026'],[95,'You own this town.']];
+function updateScoreboard() {
+  const total = new Set(restaurants.map(r=>r.n)).size;
+  const been = beenSet.size, want = wantSet.size;
+  document.getElementById('sbBeen').textContent = been;
+  document.getElementById('sbWant').textContent = want;
+  document.getElementById('sbFill').style.width = Math.min(100, Math.round(been/total*100)) + '%';
+  let label = SB_LABELS[0][1];
+  SB_LABELS.forEach(([n,l]) => { if (been >= n) label = l; });
+  document.getElementById('sbLabel').textContent = label;
+}
+const MILESTONES = {1:'\ud83c\udf7d First spot logged. The list has begun.',5:'\ud83d\udd25 5 down. You\u2019re moving.',10:'\ud83d\udcaa 10 spots. Double digits.',25:'\ud83c\udfc6 25 conquered. Quarter of the city.',50:'\ud83d\udc51 50. Half the list. Unreal.'};
+
+// ── Confetti ──
+function confettiBurst(x, y) {
+  const colors = ['#e05b7b','#3d9a6c','#e8b93e','#5b8de0','#b08866'];
+  for (let i = 0; i < 14; i++) {
+    const b = document.createElement('div');
+    b.className = 'confetti-bit';
+    b.style.left = x + 'px'; b.style.top = y + 'px';
+    b.style.background = colors[i % colors.length];
+    const ang = Math.random() * Math.PI * 2, dist = 40 + Math.random() * 70;
+    b.style.setProperty('--cx', Math.cos(ang) * dist + 'px');
+    b.style.setProperty('--cy', (Math.sin(ang) * dist - 30) + 'px');
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 750);
+  }
+}
+
+// ── Toggle marks ──
+function toggleMark(name, type, x, y) {
+  const set = type === 'been' ? beenSet : wantSet;
+  const adding = !set.has(name);
+  adding ? set.add(name) : set.delete(name);
+  if (adding && type === 'been') {
+    confettiBurst(x ?? innerWidth/2, y ?? innerHeight/3);
+    if (MILESTONES[beenSet.size]) showToast(MILESTONES[beenSet.size], 3200);
+    else showToast('\u2713 ' + name + ' \u2014 logged');
+    if (wantSet.has(name)) { wantSet.delete(name); }
+  } else if (adding) {
+    showToast('\u2665 Saved: ' + name);
+  }
+  saveMarks();
+  syncMarkUI(name);
+  updateScoreboard();
+  if (activeChip === '\u2665 Saved' || activeChip === '\u2713 Been') render();
+}
+function syncMarkUI(name) {
+  document.querySelectorAll('.tile').forEach(t => {
+    const r = restaurants[Number(t.dataset.index)];
+    if (!r || r.n !== name) return;
+    t.classList.toggle('is-been', beenSet.has(name));
+    t.querySelector('.mark-want')?.classList.toggle('on', wantSet.has(name));
+    t.querySelector('.mark-been')?.classList.toggle('on', beenSet.has(name));
+  });
+  const pw = document.getElementById('panelWantBtn'), pb = document.getElementById('panelBeenBtn');
+  if (pw && pw.dataset.name === name) {
+    pw.classList.toggle('on', wantSet.has(name));
+    pb.classList.toggle('on', beenSet.has(name));
+    pw.textContent = wantSet.has(name) ? '\u2665 Saved' : '\u2665 Save for later';
+    pb.textContent = beenSet.has(name) ? '\u2713 Been there' : '\u2713 Mark as been';
+  }
+}
+
+// ── Chips ──
+function renderChips() {
+  const el = document.getElementById('chips');
+  el.innerHTML = CHIPS.map(c => `<button class="chip ${c===activeChip?'on':''}" data-chip="${c}">${c}</button>`).join('');
+  el.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    activeChip = b.dataset.chip;
+    renderChips(); render();
+  }));
+}
+
+// ── Tonight's Pick ──
+let spinPick = null, spinTimer = null;
+function spinPool() {
+  const pool = restaurants.filter(match);
+  return pool.length ? pool : restaurants;
+}
+function runSpin() {
+  const pool = spinPool();
+  const nameEl = document.getElementById('spinName'), subEl = document.getElementById('spinSub');
+  nameEl.classList.add('rolling'); subEl.textContent = '';
+  let ticks = 0, total = 18 + Math.floor(Math.random() * 8);
+  clearInterval(spinTimer);
+  spinTimer = setInterval(() => {
+    ticks++;
+    const r = pool[Math.floor(Math.random() * pool.length)];
+    nameEl.textContent = r.n;
+    if (ticks >= total) {
+      clearInterval(spinTimer);
+      spinPick = pool[Math.floor(Math.random() * pool.length)];
+      nameEl.textContent = spinPick.n;
+      nameEl.classList.remove('rolling');
+      subEl.textContent = `${spinPick.c} \u00b7 ${spinPick.area}` + (TRANSIT[spinPick.n] ? ` \u00b7 \ud83d\ude87 ${TRANSIT[spinPick.n].stops[0].name}, ${TRANSIT[spinPick.n].stops[0].walk} walk` : '');
+    }
+  }, 65 + ticks);
+}
+function openSpin() {
+  document.getElementById('spinOverlay').classList.add('open');
+  runSpin();
+}
+document.getElementById('tonightBtn').addEventListener('click', openSpin);
+document.getElementById('spinAgain').addEventListener('click', runSpin);
+document.getElementById('spinClose').addEventListener('click', () => { clearInterval(spinTimer); document.getElementById('spinOverlay').classList.remove('open'); });
+document.getElementById('spinOverlay').addEventListener('click', e => { if (e.target.id === 'spinOverlay') { clearInterval(spinTimer); e.target.classList.remove('open'); } });
+document.getElementById('spinGo').addEventListener('click', () => {
+  if (!spinPick) return;
+  document.getElementById('spinOverlay').classList.remove('open');
+  openPanel(spinPick);
+});
+document.getElementById('panelWantBtn').addEventListener('click', e => toggleMark(e.target.dataset.name, 'want', e.clientX, e.clientY));
+document.getElementById('panelBeenBtn').addEventListener('click', e => toggleMark(e.target.dataset.name, 'been', e.clientX, e.clientY));
+
+function render() {
+  const filtered = restaurants.filter(match);
+  const grouped = new Map();
+  filtered.forEach(r => {
+    if (!grouped.has(r.c)) grouped.set(r.c, []);
+    grouped.get(r.c).push(r);
+  });
+
+  const known = PREFERRED_ORDER.filter(c => grouped.has(c)).map(c => [c, grouped.get(c)]);
+  const extra = [...grouped.entries()].filter(([c]) => !PREFERRED_ORDER.includes(c));
+  const orderedGroups = [...known, ...extra];
+
+  const sectionsEl = document.getElementById('sections');
+  sectionsEl.innerHTML = '';
+  renderIndex(orderedGroups);
+
+  let idx = 1;
+  orderedGroups.forEach(([cat, items]) => {
+    const sec = document.createElement('section');
+    sec.className = 'section';
+    sec.id = catId(cat);
+    sec.innerHTML = `
+      <div class="section-head">
+        <div class="section-num">${String(idx).padStart(2,'0')} / ${orderedGroups.length}</div>
+        <div><h2>${cat}</h2><p class="section-note">${items.length} ${items.length===1?'spot':'spots'} — tap a tile for details.</p></div>
+      </div>
+      <div class="tile-grid">${items.map(r => tileHTML(r)).join('')}</div>`;
+    sectionsEl.appendChild(sec);
+    idx++;
+  });
+
+  document.getElementById('empty').style.display = filtered.length ? 'none' : 'block';
+  document.querySelectorAll('.tile').forEach((t, i) => {
+    t.style.animationDelay = Math.min(i * 0.02, 0.3) + 's';
+    t.addEventListener('click', e => {
+      if (e.target.closest('.tile-action-btn')) return;
+      openPanel(restaurants[Number(t.dataset.index)]);
+    });
+    t.querySelector('.mark-want')?.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleMark(restaurants[Number(t.dataset.index)].n, 'want', e.clientX, e.clientY);
+    });
+    t.querySelector('.mark-been')?.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleMark(restaurants[Number(t.dataset.index)].n, 'been', e.clientX, e.clientY);
+    });
+  });
+
+  watchSections();
+  updateMeta();
+  updateScoreboard();
+}
+
+function catId(cat) {
+  return cat.toLowerCase().replaceAll(' ','-').replaceAll('&','and').replaceAll("'","");
+}
+
+function tileHTML(r) {
+  const i = restaurants.indexOf(r);
+  const num = String(i + 1).padStart(3, '0');
+  const transit = tileBullets(r);
+  const isUser = userAdded.has(i);
+  return `<button class="tile ${beenSet.has(r.n) ? 'is-been' : ''}" data-index="${i}">
+    <div class="tile-actions">
+      <span class="tile-action-btn mark-want ${wantSet.has(r.n) ? 'on' : ''}" title="Save to wishlist">♥</span>
+      <span class="tile-action-btn mark-been ${beenSet.has(r.n) ? 'on' : ''}" title="Been there">✓</span>
+    </div>
+    <div class="tile-top">
+      <span class="tile-num">${num}${isUser ? '<span class="tile-user-badge">✦</span>' : ''}</span>
+      <span class="tile-neighborhood">${r.area || ''}</span>
+    </div>
+    <h3>${r.n}</h3>
+    <p>${r.d || ''}</p>
+    <div class="tile-bottom-row">
+      <div class="tag-row">${(r.tags||[]).slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      ${transit}
+    </div>
+  </button>`;
+}
+
+function tileBullets(r) {
+  const data = TRANSIT[r.n];
+  if (!data || !data.stops || !data.stops[0] || !data.stops[0].lines.length) return '';
+  const bullets = data.stops[0].lines.slice(0, 3).map(l => {
+    const bg = LINE_COLORS[l] || '#555';
+    const tc = ['N','Q','R','W'].includes(l) ? '#000' : '#fff';
+    return `<span class="mta-bullet mta-bullet-sm" style="background:${bg};color:${tc}">${l}</span>`;
+  }).join('');
+  return `<div class="tile-transit">${bullets}<span class="tile-transit-walk">${data.stops[0].name} · ${data.stops[0].walk}</span></div>`;
+}
+
+function renderIndex(groups) {
+  const ci = document.getElementById('chapterIndex');
+  const links = groups.map(([cat], i) =>
+    `<button class="chapter-link ${i===0?'active':''}" data-target="${catId(cat)}">${String(i+1).padStart(2,'0')} · ${cat}</button>`
+  ).join('');
+  ci.innerHTML = `<div class="chapter-kicker">Chapters</div>${links}`;
+  ci.querySelectorAll('.chapter-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+function watchSections() {
+  if (currentObserver) currentObserver.disconnect();
+  const links = [...document.querySelectorAll('.chapter-link')];
+  currentObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.dataset.target === entry.target.id));
+      }
+    });
+  }, { rootMargin: '-34% 0px -58% 0px', threshold: 0 });
+  document.querySelectorAll('.section').forEach(sec => currentObserver.observe(sec));
+}
+
+function updateMeta() {
+  const allCats = new Set(restaurants.map(r => r.c));
+  document.getElementById('countSpots').textContent = restaurants.length;
+  document.getElementById('countCats').textContent = allCats.size;
+}
+
+// ─────────────────────────────────────────
+// DETAIL PANEL
+// ─────────────────────────────────────────
+function openPanel(r) {
+  document.getElementById('panelKicker').textContent = `${r.c} / ${r.area}`;
+  document.getElementById('panelTitle').textContent = r.n;
+  document.getElementById('panelDesc').textContent = r.d;
+  document.getElementById('panelTags').innerHTML = (r.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('panelHighlights').innerHTML = (r.h||[]).map(x=>`<li>${x}</li>`).join('');
+
+  const planData = [
+    { label: 'Prime Time', value: r.prime },
+    { label: 'Reservations', value: r.rez },
+    { label: 'Dress Code', value: r.dress },
+  ].filter(p => p.value && p.value.trim());
+  const planBlock = document.getElementById('planBlock');
+  if (planData.length) {
+    document.getElementById('planRows').innerHTML = planData.map(p =>
+      `<div class="plan-row"><div class="plan-row-label">${p.label}</div><div class="plan-row-value">${p.value}</div></div>`
+    ).join('');
+    planBlock.style.display = '';
+  } else {
+    planBlock.style.display = 'none';
+  }
+
+  const wLink = document.getElementById('websiteLink');
+  wLink.href = r.website || r.menu || `https://www.google.com/maps/search/${q(placeQuery(r))}`;
+  document.getElementById('directionsLink').href = linkFor(r, 'directions');
+  document.getElementById('mapFrame').src = mapSrc(r);
+  document.getElementById('transitContent').innerHTML = `<span class="transit-spinner"></span><span>&nbsp;Finding nearest subway…</span>`;
+  setTimeout(() => renderTransit(r), 120);
+
+  const pw = document.getElementById('panelWantBtn'), pb = document.getElementById('panelBeenBtn');
+  pw.dataset.name = r.n; pb.dataset.name = r.n;
+  syncMarkUI(r.n);
+
+  const panel = document.getElementById('panel');
+  panel.classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.body.classList.add('lock');
+  panel.setAttribute('aria-hidden', 'false');
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.body.classList.remove('lock');
+  document.getElementById('panel').setAttribute('aria-hidden', 'true');
+}
+
+function renderTransit(r) {
+  const el = document.getElementById('transitContent');
+  const data = TRANSIT[r.n];
+  if (!data) { el.innerHTML = `<span class="transit-error">Transit info not available for this spot.</span>`; return; }
+  let html = '';
+  data.stops.forEach((stop, i) => {
+    if (i > 0) html += `<div class="transit-divider">also nearby</div>`;
+    const bullets = stop.lines.map(l => {
+      const bg = LINE_COLORS[l] || '#555';
+      const tc = ['N','Q','R','W'].includes(l) ? '#000' : '#fff';
+      return `<span class="mta-bullet" style="background:${bg};color:${tc}">${l}</span>`;
+    }).join('');
+    html += `<div class="transit-stop">
+      <div class="transit-lines">${bullets}</div>
+      <div class="transit-info">
+        <div class="transit-stop-name">${stop.name}</div>
+        <div class="transit-walk">${stop.walk}</div>
+      </div>
+    </div>`;
+  });
+  if (data.note) html += `<p style="font-size:12px;color:var(--ink-soft);margin-top:8px;font-style:italic">${data.note}</p>`;
+  el.innerHTML = html;
+}
+
+document.getElementById('closePanel').addEventListener('click', closePanel);
+document.getElementById('overlay').addEventListener('click', closePanel);
+window.addEventListener('keydown', e => { if (e.key === 'Escape') { closePanel(); closeAddModalFn(); closeThemeModalFn(); } });
+
+// ─────────────────────────────────────────
+// SCROLL PROGRESS
+// ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progress').style.width = ((window.scrollY / h) * 100) + '%';
+}, { passive: true });
+
+function setHeaderH() {
+  const tb = document.querySelector('.toolbar');
+  if (tb) document.documentElement.style.setProperty('--header-h', (tb.offsetHeight + 18) + 'px');
+}
+window.addEventListener('resize', setHeaderH);
+window.addEventListener('load', setHeaderH);
+renderChips();
+setHeaderH();
+document.getElementById('searchInput').addEventListener('input', render);
+
+// ─────────────────────────────────────────
+// ADD / EDIT RESTAURANT
+// ─────────────────────────────────────────
+function openAddModal() {
+  editIndex = -1;
+  pendingTags = [];
+  autoGenFired = false;
+  document.getElementById('modalTitle').textContent = 'Add Restaurant';
+  document.getElementById('fName').value = '';
+  document.getElementById('fCategory').value = '';
+  document.getElementById('fCategoryCustom').value = '';
+  document.getElementById('fArea').value = '';
+  document.getElementById('fDesc').value = '';
+  document.getElementById('fHighlights').value = '';
+  document.getElementById('fPrime').value = '';
+  document.getElementById('fRez').value = '';
+  document.getElementById('fWebsite').value = '';
+  renderTagPills();
+  showModal('addModal', 'addModalBg');
+}
+
+function openEditModal(idx) {
+  const r = restaurants[idx];
+  editIndex = idx;
+  pendingTags = [...(r.tags || [])];
+  autoGenFired = true; // don't auto-generate on edits
+  document.getElementById('modalTitle').textContent = 'Edit Restaurant';
+  document.getElementById('fName').value = r.n || '';
+  document.getElementById('fCategory').value = '';
+  document.getElementById('fCategoryCustom').value = r.c || '';
+  document.getElementById('fArea').value = r.area || '';
+  document.getElementById('fDesc').value = r.d || '';
+  document.getElementById('fHighlights').value = (r.h || []).join(', ');
+  document.getElementById('fPrime').value = r.prime || '';
+  document.getElementById('fRez').value = r.rez || '';
+  document.getElementById('fWebsite').value = r.website || '';
+  renderTagPills();
+  showModal('addModal', 'addModalBg');
+}
+
+async function saveRestaurant() {
+  const name = document.getElementById('fName').value.trim();
+  if (!name) { showToast('⚠ Name is required'); return; }
+  const category = document.getElementById('fCategoryCustom').value.trim() || document.getElementById('fCategory').value || 'Uncategorized';
+  const area = document.getElementById('fArea').value.trim() || 'NYC';
+  const desc = document.getElementById('fDesc').value.trim();
+  const highlights = document.getElementById('fHighlights').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const prime = document.getElementById('fPrime').value.trim();
+  const rez = document.getElementById('fRez').value.trim();
+  const website = document.getElementById('fWebsite').value.trim();
+
+  const entry = { n: name, c: category, area, d: desc, h: highlights, tags: [...pendingTags], prime, rez, website };
+
+  pushUndo();
+
+  if (editIndex >= 0) {
+    restaurants[editIndex] = entry;
+    showToast('✓ Restaurant updated');
+    closeAddModalFn();
+    render();
+  } else {
+    restaurants.push(entry);
+    const newIdx = restaurants.length - 1;
+    userAdded.add(newIdx);
+    closeAddModalFn();
+    render();
+    showToast('✓ Spot added — loading transit & tags…');
+
+    // Run both in parallel
+    Promise.all([
+      fetchTransitForSpot(entry),
+      entry.tags.length === 0 ? fetchTagsForSpot(entry) : Promise.resolve(null)
+    ]).then(([transitData, tagsData]) => {
+      let updated = false;
+      if (transitData) {
+        TRANSIT[name] = transitData;
+        updated = true;
+      }
+      if (tagsData && tagsData.length) {
+        const idx = restaurants.findIndex(r => r.n === name && r.c === entry.c);
+        if (idx >= 0) restaurants[idx].tags = tagsData;
+        updated = true;
+      }
+      if (updated) {
+        render();
+        showToast('🚇 Transit & tags loaded');
+      }
+    }).catch(() => {/* silent */});
+  }
+}
+
+async function fetchTransitForSpot(r) {
+  const prompt = `You are a New York City transit expert. For the restaurant below, return the 1–2 nearest NYC subway stations and walk times.
+
+Restaurant: ${r.n}
+Neighborhood: ${r.area}
+City: New York, NY
+
+Return ONLY valid JSON in this exact shape, nothing else — no markdown, no explanation:
+{
+  "stops": [
+    { "name": "Station Name", "lines": ["A","C"], "walk": "4 min" },
+    { "name": "Another Station", "lines": ["1"], "walk": "6 min" }
+  ]
+}
+
+Rules:
+- "lines" must only contain real MTA subway line letters/numbers: 1 2 3 4 5 6 7 A B C D E F G J L M N Q R S W Z SIR
+- "walk" must be like "3 min", "5 min", "8 min"
+- "name" must be the real MTA station name (e.g. "14 St-Union Sq", "W 4 St-Washington Sq")
+- Include 1 stop minimum, 2 stops maximum
+- Base this on the actual known address or typical NYC location of this restaurant`;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+
+  const data = await response.json();
+  const raw = data.content?.find(b => b.type === 'text')?.text?.trim();
+  if (!raw) return null;
+
+  // Strip any accidental markdown fences
+  const clean = raw.replace(/```json|```/g, '').trim();
+  try {
+    const parsed = JSON.parse(clean);
+    if (parsed?.stops?.length) return parsed;
+  } catch { /* invalid JSON */ }
+  return null;
+}
+
+async function fetchTagsForSpot(r) {
+  const prompt = `You are curating an NYC restaurant guide. Generate 3–4 short tag labels for this restaurant.
+
+Name: ${r.n}
+Category: ${r.c}
+Neighborhood: ${r.area}
+Description: ${r.d || ''}
+
+Return ONLY a JSON array of strings, nothing else. Example: ["Italian","West Village","Date Night","Wine Bar"]
+Rules:
+- Each tag is 1–3 words, title case
+- Include the neighborhood, cuisine type, and 1–2 vibe/occasion tags
+- No punctuation inside tags`;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+
+  const data = await response.json();
+  const raw = data.content?.find(b => b.type === 'text')?.text?.trim();
+  if (!raw) return null;
+  const clean = raw.replace(/```json|```/g, '').trim();
+  try {
+    const parsed = JSON.parse(clean);
+    if (Array.isArray(parsed) && parsed.length) return parsed.slice(0, 4);
+  } catch { /* invalid JSON */ }
+  return null;
+}
+
+
+function deleteRestaurant(idx) {
+  const r = restaurants[idx];
+  if (!confirm(`Remove "${r.n}" from the guide?`)) return;
+  pushUndo();
+  userAdded.delete(idx);
+  restaurants.splice(idx, 1);
+  const newUserAdded = new Set();
+  userAdded.forEach(i => { if (i < idx) newUserAdded.add(i); else if (i > idx) newUserAdded.add(i - 1); });
+  userAdded = newUserAdded;
+  showToast(`✕ "${r.n}" removed — hit Undo to bring it back`);
+  render();
+}
+
+// Tag input
+document.getElementById('fTagInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const val = e.target.value.trim();
+    if (val && !pendingTags.includes(val)) {
+      pendingTags.push(val);
+      renderTagPills();
+    }
+    e.target.value = '';
+  }
+});
+
+function renderTagPills() {
+  const wrap = document.getElementById('tagWrap');
+  const input = document.getElementById('fTagInput');
+  wrap.querySelectorAll('.tag-pill').forEach(p => p.remove());
+  pendingTags.forEach((tag, i) => {
+    const pill = document.createElement('span');
+    pill.className = 'tag-pill';
+    pill.textContent = tag;
+    pill.title = 'Click to remove';
+    pill.addEventListener('click', () => { pendingTags.splice(i, 1); renderTagPills(); });
+    wrap.insertBefore(pill, input);
+  });
+}
+
+document.getElementById('saveRestaurantBtn').addEventListener('click', saveRestaurant);
+document.getElementById('cancelAddBtn').addEventListener('click', closeAddModalFn);
+document.getElementById('closeAddModal').addEventListener('click', closeAddModalFn);
+document.getElementById('addModalBg').addEventListener('click', closeAddModalFn);
+
+function closeAddModalFn() { hideModal('addModal', 'addModalBg'); }
+
+// ─────────────────────────────────────────
+// AI DESCRIPTION GENERATOR
+// ─────────────────────────────────────────
+async function generateDescription(name, cat, area) {
+  const prompt = `You are the editor of a curated NYC restaurant guide written in a sharp, insider voice — confident, specific, no fluff. Write a 1–2 sentence description (max 40 words) for this restaurant:
+
+Name: ${name}
+Category/Cuisine: ${cat || 'Unknown'}
+Neighborhood: ${area || 'New York City'}
+
+Style: terse, vivid, authoritative. No adjective inflation. No "perfect for", "great for". Sound like someone who's been there. Return ONLY the description text, nothing else.`;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  const data = await response.json();
+  return data.content?.find(b => b.type === 'text')?.text?.trim() || null;
+}
+
+function setAiLoading(on) {
+  const btn = document.getElementById('aiGenBtn');
+  const icon = document.getElementById('aiIcon');
+  const text = document.getElementById('aiBtnText');
+  const status = document.getElementById('aiStatus');
+  btn.classList.toggle('loading', on);
+  if (on) {
+    if (icon) icon.outerHTML = '<span class="ai-spin" id="aiIcon"></span>';
+    text.textContent = 'Generating…';
+    if (status) status.textContent = '✦ Writing description…';
+  } else {
+    const iconEl = document.getElementById('aiIcon');
+    if (iconEl) iconEl.outerHTML = '<span id="aiIcon">✦</span>';
+    text.textContent = 'Generate with AI';
+    if (status) status.textContent = 'AI will auto-generate a description when Name and Category are filled in.';
+  }
+}
+
+// Manual button
+document.getElementById('aiGenBtn').addEventListener('click', async () => {
+  const name = document.getElementById('fName').value.trim();
+  const cat = document.getElementById('fCategoryCustom').value.trim() || document.getElementById('fCategory').value || '';
+  const area = document.getElementById('fArea').value.trim();
+  if (!name) { showToast('⚠ Enter a restaurant name first'); return; }
+  setAiLoading(true);
+  try {
+    const desc = await generateDescription(name, cat, area);
+    if (desc) { document.getElementById('fDesc').value = desc; showToast('✦ Description generated'); }
+    else showToast('⚠ Could not generate description');
+  } catch { showToast('⚠ AI generation failed'); }
+  finally { setAiLoading(false); }
+});
+
+// Auto-trigger: fires once when both Name and Category are filled in a new-add flow
+let autoGenFired = false;
+
+async function maybeAutoGen() {
+  if (editIndex >= 0) return; // don't auto-gen on edits — existing description stays
+  if (autoGenFired) return;
+  const name = document.getElementById('fName').value.trim();
+  const cat = document.getElementById('fCategoryCustom').value.trim() || document.getElementById('fCategory').value || '';
+  const area = document.getElementById('fArea').value.trim();
+  const descField = document.getElementById('fDesc');
+  if (!name || !cat || descField.value.trim()) return; // need name+cat, skip if already has text
+  autoGenFired = true;
+  setAiLoading(true);
+  try {
+    const desc = await generateDescription(name, cat, area);
+    if (desc && !descField.value.trim()) {
+      descField.value = desc;
+      const status = document.getElementById('aiStatus');
+      if (status) status.textContent = '✦ Description auto-generated — edit freely.';
+    }
+  } catch { /* silent fail on auto */ }
+  finally { setAiLoading(false); }
+}
+
+document.getElementById('fName').addEventListener('blur', maybeAutoGen);
+document.getElementById('fCategory').addEventListener('change', maybeAutoGen);
+document.getElementById('fCategoryCustom').addEventListener('blur', maybeAutoGen);
+
+// ─────────────────────────────────────────
+// THEME SYSTEM
+// ─────────────────────────────────────────
+const THEMES = [
+  { id: 'default', name: 'Classic', bg: '#f5f6f9', paper: '#ffffff', accent: '#b08866', ink: '#15234a' },
+  { id: 'dark', name: 'Dark', bg: '#0e0e12', paper: '#1a1a22', accent: '#b08866', ink: '#e8e4dc' },
+  { id: 'noir', name: 'Noir', bg: '#121214', paper: '#1c1c1f', accent: '#e8c87a', ink: '#f0ede8' },
+  { id: 'emerald', name: 'Emerald', bg: '#f2f7f4', paper: '#ffffff', accent: '#2d7a52', ink: '#0e2a1c' },
+  { id: 'blush', name: 'Blush', bg: '#fdf4f0', paper: '#ffffff', accent: '#c4614a', ink: '#2d1a14' },
+  { id: 'slate', name: 'Slate', bg: '#1e2130', paper: '#262a3d', accent: '#7b9cf0', ink: '#d8dce8' },
+];
+
+let activeTheme = 'default';
+
+function buildThemeGrid() {
+  const grid = document.getElementById('themeGrid');
+  grid.innerHTML = THEMES.map(t => `
+    <div class="theme-swatch ${t.id === activeTheme ? 'selected' : ''}" data-theme="${t.id}" onclick="applyTheme('${t.id}')">
+      <div class="theme-check">✓</div>
+      <div class="theme-swatch-preview" style="background:${t.bg}">
+        <div class="theme-swatch-dot" style="background:${t.accent}"></div>
+        <div class="theme-swatch-dot" style="background:${t.ink};opacity:.5"></div>
+        <div class="theme-swatch-dot" style="background:${t.paper};border:1px solid ${t.ink}22"></div>
+      </div>
+      <div class="theme-name" style="color:${t.ink}">${t.name}</div>
+    </div>
+  `).join('');
+}
+
+function applyTheme(id) {
+  activeTheme = id;
+  const themeClasses = THEMES.map(t => `theme-${t.id}`);
+  document.body.classList.remove(...themeClasses);
+  if (id !== 'default') document.body.classList.add(`theme-${id}`);
+  // Reset any custom CSS vars
+  ['--accent','--accent2','--bg','--ink','--paper'].forEach(v => document.documentElement.style.removeProperty(v));
+  buildThemeGrid();
+  showToast(`✓ Theme: ${THEMES.find(t=>t.id===id)?.name}`);
+}
+
+function applyCustomColors() {
+  const accent = document.getElementById('customAccent').value;
+  const bg = document.getElementById('customBg').value;
+  const ink = document.getElementById('customInk').value;
+  const paper = document.getElementById('customPaper').value;
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--accent2', accent);
+  document.documentElement.style.setProperty('--bg', bg);
+  document.documentElement.style.setProperty('--ink', ink);
+  document.documentElement.style.setProperty('--paper', paper);
+  showToast('✓ Custom colors applied');
+}
+
+function resetColors() {
+  ['--accent','--accent2','--bg','--ink','--paper'].forEach(v => document.documentElement.style.removeProperty(v));
+  applyTheme(activeTheme);
+  showToast('✓ Colors reset');
+}
+
+document.getElementById('themeBtn').addEventListener('click', () => {
+  buildThemeGrid();
+  showModal('themeModal', 'themeModalBg');
+});
+document.getElementById('closeThemeModal').addEventListener('click', closeThemeModalFn);
+document.getElementById('themeModalBg').addEventListener('click', closeThemeModalFn);
+function closeThemeModalFn() { hideModal('themeModal', 'themeModalBg'); }
+
+// ─────────────────────────────────────────
+// MODAL HELPERS
+// ─────────────────────────────────────────
+function showModal(modalId, bgId) {
+  document.getElementById(bgId).classList.add('open');
+  document.getElementById(modalId).classList.add('open');
+  document.body.classList.add('lock');
+}
+function hideModal(modalId, bgId) {
+  document.getElementById(bgId).classList.remove('open');
+  document.getElementById(modalId).classList.remove('open');
+  document.body.classList.remove('lock');
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+render();
+updateUndoBtn();
+</script>
+</body>
+</html>
